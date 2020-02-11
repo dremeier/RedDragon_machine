@@ -1,0 +1,1 @@
+pin+iocontrol.0.user-enable-out pin+iocontrol.0.user-request-enable pin+halui.machine.is-on pin+halui.machine.off pin+halui.machine.on pin+halui.machine.units-per-mm pin+halui.estop.activate pin+halui.estop.is-activated pin+halui.estop.reset pin+motion.in-position pin+motion.motion-enabled pin+motion.motion-type
