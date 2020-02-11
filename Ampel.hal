@@ -1,0 +1,49 @@
+#########################################################################################
+#  				--- Ampel Steuerung---													#	
+# Ampel.hal wird aus RedDragon.ini geladen												#
+# andre 01/2020																			#
+#########################################################################################
+
+ #loadrt lut5 	names=lut-red,lut-yellow,lut-green #<- loaded in RedDragon.ini
+loadrt siggen 	num_chan=1
+addf siggen.0.update 	servo-thread
+setp siggen.0.frequency 2
+addf lut-red			servo-thread
+addf lut-yellow			servo-thread
+addf lut-green			servo-thread
+net clock		<=		siggen.0.clock
+#-----------------------------------------------------------------------------------------
+
+#Red Light
+setp lut-red.function 0x2202
+net in-position			=> lut-red.in-0			
+net machine-is-on		=> lut-red.in-1
+net estop-activated		=> lut-red.in-2
+net clock				=> lut-red.in-3
+net red-on 				<= lut-red.out 		=> hm2_5i24.0.7i90.0.0.p1-out-17
+
+#Yellow Light
+setp lut-yellow.function 0xA8
+net machine-is-enabled	=> lut-yellow.in-0
+net is-reference		=> lut-yellow.in-1
+net clock				=> lut-yellow.in-2
+net program-is-running	=> lut-yellow.in-3
+net program-is-paused	=> lut-yellow.in-4
+net yellow-on 			<= lut-yellow.out	=> hm2_5i24.0.7i90.0.0.p1-out-18
+
+#Green Light
+setp lut-green.function 0x62
+net program-is-running	=> lut-green.in-0			
+net program-is-paused	=> lut-green.in-1
+net clock				=> lut-green.in-2
+net green-on 			<= lut-green.out 	=> hm2_5i24.0.7i90.0.0.p1-out-19
+
+################# Ampel Funktion #########################################
+#rot:			Lcnc gestartet									> motion.in-position=1 und halui.machine.is-on =0
+#rot blinken:	Notaus/ fehler									> halui.estop.is-activated 
+#
+#gelb:			maschine initialisiert 							> machine-is-enabled + motion.teleop-mode (is-reference) -> wenn maschine referenz gefahren + nicht prog.running oder pause
+#gelb blinken:	maschine in bewegung/joggen/Messen/spindel		> machine-is-enabled + nicht prog.running oder pause
+#
+#grün:			play,-gecode verarbeitung						> halui.program.is-running
+#grün blinkend:	pause											> halui.program.is-paused
