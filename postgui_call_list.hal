@@ -1,0 +1,10 @@
+# These files are loaded post GUI, in the order they appear
+
+source external_IO.hal					# HAL Pins aus qtpyvcp
+source TsHW_andre.hal					# Handrad
+source time.hal 						# machine runtime timer.hal
+
+#********************** Options ?*************************************
+#source toolchange_index.hal
+#source sim_vmc.hal
+#source pyvcp_options.hal

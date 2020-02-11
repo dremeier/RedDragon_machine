@@ -1,0 +1,9 @@
+# example of a machine specific settings
+windows:
+  mainwindow:
+    kwargs:
+      confirm_exit: false
+
+data_plugins:
+  clock:
+    provider: qtpyvcp.plugins.clock:Clock

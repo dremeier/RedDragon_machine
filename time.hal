@@ -1,0 +1,17 @@
+#########################################
+#										#
+#	time.hal for the machine runtime	#
+#										#
+#########################################
+
+loadrt time
+#loadrt not <= wird in redDragon.hal geladen
+
+addf time.0 servo-thread
+addf not.timer servo-thread
+
+net program-is-idle 	=> not.timer.in 
+net cycle-timer 		<= time.0.start 			<= not.timer.out
+net cycle-seconds 		qtpyvcp.timerseconds.in 	<= time.0.seconds
+net cycle-minutes 		qtpyvcp.timerminutes.in 	<= time.0.minutes
+net cycle-hours 		qtpyvcp.timerhours.in 		<= time.0.hours
