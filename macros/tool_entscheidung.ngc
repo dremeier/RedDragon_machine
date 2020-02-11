@@ -1,0 +1,34 @@
+o<toolchange> sub
+
+#1 = #5219 (shared G52 and G92 W-axis -> used for switch ATC on)
+
+(debug, Toolnummer: #<_selected_tool>)
+(debug, atc on: #1)
+
+o99 if [#1 EQ 1]
+  o1000 call
+  o<toolchange> endsub [1]
+  m2
+o99 else
+  o2000 call
+  o<toolchange> endsub [1]
+  m2
+o99 endif
+	
+o<toolchange> endsub [1]
+m2
+
+
+o2000 sub
+(msg, im manual_toolchanger)
+o2000 endsub
+
+
+o1000 sub
+(msg, im Auto_toolchanger)
+o1000 endsub
+
+
+
+
+

@@ -1,0 +1,11 @@
+o<safe_param> sub
+
+(varibale define)
+#<atc_manual> =#1
+
+(store the variable to a system variable. Stolen from shared G52 and G92 W-axis -> used for switch ATC on)
+#5219 = #<atc_manual>
+(msg, safed atc or manual state)
+
+o<safe_param> endsub
+m2

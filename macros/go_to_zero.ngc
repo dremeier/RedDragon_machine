@@ -1,0 +1,17 @@
+o<go_to_zero> sub
+(msg, go to relativ zero, Z1)
+
+#<z_safe> = #1
+
+ o<100> if [#5422 LT 50]
+   G53 G0 Z[#<z_safe>]
+   G0 X0 Y0
+   G0 Z1
+ o<100> else if [#5422 GT 50]
+   G0 X0 Y0
+   G0 Z1
+ o<100> endif
+
+o<go_to_zero> endsub
+
+M2

@@ -1,0 +1,13 @@
+o<set_spindle_speed_rev> sub
+
+( define the variables you like to pull from the settings widget )
+( the variable is the same name like the widget )
+#<set_spindle_speed> =#1
+
+(o100 sub)
+S#<set_spindle_speed>M4
+(o100 endsub)
+
+o<set_spindle_speed_rev> endsub
+
+M2

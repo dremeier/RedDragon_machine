@@ -1,0 +1,8 @@
+o<go_to_g28> sub
+
+(#<z_safe> = #1)
+
+(msg, go to Position G28)
+
+o<go_to_g28> endsub
+M2
