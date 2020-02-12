@@ -1,9 +1,0 @@
-#*******************
-#  AXIS Y JOINT 1
-#*******************
-
-net yposcmd joint.1.motor-pos-cmd  => hm2_5i24.0.stbl.0.5.pos_cmd
-net yvelcmd joint.1.vel-cmd        => hm2_5i24.0.stbl.0.5.vel_cmd
-net yposfb  joint.1.motor-pos-fb  <=  hm2_5i24.0.stbl.0.5.pos_fb
-net yenable joint.1.amp-enable-out => hm2_5i24.0.stbl.0.5.enable
-net yfault  joint.1.amp-fault-in  <=  hm2_5i24.0.stbl.0.5.fault
