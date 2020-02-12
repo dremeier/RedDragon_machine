@@ -1,0 +1,14 @@
+o<set_g28_position> sub
+
+#<x_g28_pos> =#1
+#<y_g28_pos> =#2
+#<z_g28_pos> =#3
+
+#[5161] = #<x_g28_pos>
+#[5162] = #<y_g28_pos>
+#[5163] = #<z_g28_pos>
+
+(msg, G28 is set)
+
+o<set_g28_position> endsub
+M2

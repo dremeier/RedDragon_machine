@@ -1,0 +1,13 @@
+o<manual_or_auto_toolchange> sub
+(msg, Entscheidung)
+
+#<atc_manual>=#1 
+
+o100 if [#<atc_manual> EQ 1]
+		o<auto_toolchange> call
+o100 else
+		o<manual_toolchange> call
+
+o<manual_or_auto_toolchange> endsub
+m2
+

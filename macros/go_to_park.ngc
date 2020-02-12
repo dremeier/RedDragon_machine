@@ -1,0 +1,19 @@
+O<go_to_park> sub
+
+( define the variables you like to pull from the settings widget )
+( the variable is the same name like the widget )
+#<x_park_pos> =#1
+#<y_park_pos> =#2
+#<z_park_pos> =#3
+#<z_safe> = #4
+
+(msg, go to Park Postion)
+
+G53 G0 Z[#<z_safe>]
+G53 G0 X[#<x_park_pos>] Y[#<y_park_pos>]
+G53 G0 Z[#<z_park_pos>]
+
+ 
+O<go_to_park> endsub
+
+M2

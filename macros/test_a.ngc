@@ -1,0 +1,12 @@
+o<text_a> sub
+
+#<_ini[atc]atc_aktiv> = #2
+
+#1 = #<_ini[atc]atc_aktiv>
+
+(debug, #2 atc or manual = #1)
+
+o<test_a> endsub
+m2
+
+

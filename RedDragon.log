@@ -1,9 +1,9 @@
-2020-02-11 14:41:27,886 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
-2020-02-11 14:41:27,887 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+26.g88290a8a
-2020-02-11 14:41:27,896 - qtpyvcp - DEBUG - Qt Version: 5.7.1
-2020-02-11 14:41:27,897 - qtpyvcp - DEBUG - Qt API: QT_API
-2020-02-11 14:41:27,897 - qtpyvcp - DEBUG - QtPy Version: 1.9.0
-2020-02-11 14:41:27,897 - qtpyvcp - DEBUG - Command line options:
+2020-02-12 14:33:05,095 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
+2020-02-12 14:33:05,095 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+26.g88290a8a
+2020-02-12 14:33:05,104 - qtpyvcp - DEBUG - Qt Version: 5.7.1
+2020-02-12 14:33:05,104 - qtpyvcp - DEBUG - Qt API: QT_API
+2020-02-12 14:33:05,104 - qtpyvcp - DEBUG - QtPy Version: 1.9.0
+2020-02-12 14:33:05,104 - qtpyvcp - DEBUG - Command line options:
 {
     "command_line_args": null, 
     "config_file": "/home/andre/linuxcnc/configs/RedDragon_machine/custom_config.yml", 
@@ -27,8 +27,8 @@
     "theme": null, 
     "version": false
 }
-2020-02-11 14:41:28,006 - qtpyvcp.utilities.config_loader - DEBUG - Loading config files: ['/home/andre/linuxcnc/configs/RedDragon_machine/custom_config.yml', '/home/andre/probe_basic/probe_basic/probe_basic.yml', '/home/andre/qtpyvcp/qtpyvcp/yaml_lib/default_config.yml']
-2020-02-11 14:41:28,211 - qtpyvcp.utilities.config_loader - DEBUG - Merged YAML config:
+2020-02-12 14:33:05,212 - qtpyvcp.utilities.config_loader - DEBUG - Loading config files: ['/home/andre/linuxcnc/configs/RedDragon_machine/custom_config.yml', '/home/andre/probe_basic/probe_basic/probe_basic.yml', '/home/andre/qtpyvcp/qtpyvcp/yaml_lib/default_config.yml']
+2020-02-12 14:33:05,418 - qtpyvcp.utilities.config_loader - DEBUG - Merged YAML config:
 
 default_menubar:
 - title: File
@@ -495,144 +495,207 @@ qtdesigner:
   qss_file: /home/andre/probe_basic/probe_basic/probe_basic.qss
 
 
-2020-02-11 14:41:28,236 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
-2020-02-11 14:41:28,237 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
-2020-02-11 14:41:28,237 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
-2020-02-11 14:41:28,237 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
-2020-02-11 14:41:28,237 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
-2020-02-11 14:41:28,237 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.000 (+0.000) - in script
-2020-02-11 14:41:28,237 - qtpyvcp.vcp_launcher - DEBUG - Loading data plugings
-2020-02-11 14:41:28,237 - qtpyvcp.plugins - DEBUG - Loading plugin 'status' from 'qtpyvcp.plugins.status:Status'
-2020-02-11 14:41:28,242 - qtpyvcp.plugins - DEBUG - Loading plugin 'settings' from 'qtpyvcp.plugins.settings:Settings'
-2020-02-11 14:41:28,243 - qtpyvcp.plugins - DEBUG - Loading plugin 'position' from 'qtpyvcp.plugins.positions:Position'
-2020-02-11 14:41:28,244 - qtpyvcp.plugins - DEBUG - Loading plugin 'tooltable' from 'qtpyvcp.plugins.tool_table:ToolTable'
-2020-02-11 14:41:28,244 - qtpyvcp.plugins - DEBUG - Loading plugin 'offsettable' from 'qtpyvcp.plugins.offset_table:OffsetTable'
-2020-02-11 14:41:28,246 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
-2020-02-11 14:41:28,247 - qtpyvcp.plugins - DEBUG - Loading plugin 'notifications' from 'qtpyvcp.plugins.notifications:Notifications'
-2020-02-11 14:41:28,251 - qtpyvcp.plugins - DEBUG - Loading plugin 'clock' from 'qtpyvcp.plugins.clock:Clock'
-2020-02-11 14:41:28,252 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.015 (+0.015) - done loading data plugins
-2020-02-11 14:41:28,252 - qtpyvcp.vcp_launcher - DEBUG - Initializing app
-2020-02-11 14:41:28,294 - qtpyvcp - DEBUG - Initializing status plugin
-2020-02-11 14:41:28,294 - qtpyvcp.plugins.status - DEBUG - Starting periodic updates with 75ms cycle time
-2020-02-11 14:41:28,294 - qtpyvcp - DEBUG - Initializing settings plugin
-2020-02-11 14:41:28,294 - qtpyvcp.actions.machine_actions - DEBUG - Setting jog linear speed: 4872.0
-2020-02-11 14:41:28,295 - qtpyvcp - DEBUG - Initializing position plugin
-2020-02-11 14:41:28,295 - qtpyvcp - DEBUG - Initializing tooltable plugin
-2020-02-11 14:41:28,295 - qtpyvcp - DEBUG - Initializing offsettable plugin
-2020-02-11 14:41:28,295 - qtpyvcp - DEBUG - Initializing notifications plugin
-2020-02-11 14:41:28,305 - qtpyvcp - DEBUG - Initializing clock plugin
-2020-02-11 14:41:28,305 - qtpyvcp - INFO - Loading QSS stylesheet file: /home/andre/probe_basic/probe_basic/probe_basic.qss
-2020-02-11 14:41:28,305 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.068 (+0.053) - done initializing app
-2020-02-11 14:41:28,305 - qtpyvcp.vcp_launcher - DEBUG - Loading dialogs
-2020-02-11 14:41:28,405 - qtpyvcp.widgets.dialogs.base_dialog - DEBUG - Loading dialog from ui_file: /home/andre/qtpyvcp/qtpyvcp/widgets/dialogs/tooledit_dialog.ui
-2020-02-11 14:41:28,415 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.178 (+0.110) - done loading dialogs
-2020-02-11 14:41:28,415 - qtpyvcp.vcp_launcher - DEBUG - Loading windows
-2020-02-11 14:41:30,773 - qtpyvcp.vcp_launcher - DEBUG - Time: 2.536 (+2.358) - done loading windows
-2020-02-11 14:41:30,774 - qtpyvcp.vcp_launcher - DEBUG - Initializing widgets
-2020-02-11 14:41:30,795 - qtpyvcp.vcp_launcher - DEBUG - Time: 2.559 (+0.022) - done initializing widgets
-2020-02-11 14:41:30,798 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/postgui_call_list.hal
-2020-02-11 14:41:30,915 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -4.76837158203e-07
-2020-02-11 14:41:31,120 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:31,121 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:31,121 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 4.76837158203e-07
-2020-02-11 14:41:31,189 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884536743
-2020-02-11 14:41:31,189 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884536743
-2020-02-11 14:41:31,190 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.19209289551e-06
-2020-02-11 14:41:31,274 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884250641
-2020-02-11 14:41:31,274 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884250641
-2020-02-11 14:41:31,274 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -4.76837158203e-07
-2020-02-11 14:41:31,346 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:31,346 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:31,347 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.19209289551e-06
-2020-02-11 14:41:31,420 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884489059
-2020-02-11 14:41:31,420 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884489059
-2020-02-11 14:41:31,421 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
-2020-02-11 14:41:31,500 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884298325
-2020-02-11 14:41:31,501 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884298325
-2020-02-11 14:41:31,501 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
-2020-02-11 14:41:31,575 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884250641
-2020-02-11 14:41:31,576 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884250641
-2020-02-11 14:41:31,576 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.19209289551e-06
-2020-02-11 14:41:31,647 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:31,647 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:31,647 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.66893005371e-06
-2020-02-11 14:41:31,720 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:31,721 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:31,721 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.38418579102e-06
-2020-02-11 14:41:31,796 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884250641
-2020-02-11 14:41:31,796 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884250641
-2020-02-11 14:41:31,796 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -4.76837158203e-07
-2020-02-11 14:41:31,927 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884298325
-2020-02-11 14:41:31,927 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884298325
-2020-02-11 14:41:31,928 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.19209289551e-06
-2020-02-11 14:41:31,958 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884179115
-2020-02-11 14:41:31,958 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884179115
-2020-02-11 14:41:31,958 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.38418579102e-06
-2020-02-11 14:41:32,035 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:32,039 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:32,039 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.66893005371e-06
-2020-02-11 14:41:32,114 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884298325
-2020-02-11 14:41:32,116 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884298325
-2020-02-11 14:41:32,116 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -7.15255737305e-07
-2020-02-11 14:41:32,190 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:32,190 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:32,191 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
-2020-02-11 14:41:32,264 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:32,266 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:32,266 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.66893005371e-06
-2020-02-11 14:41:32,334 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884536743
-2020-02-11 14:41:32,335 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884536743
-2020-02-11 14:41:32,414 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:32,414 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:32,415 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
-2020-02-11 14:41:32,513 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:32,513 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:32,568 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884489059
-2020-02-11 14:41:32,568 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884489059
-2020-02-11 14:41:32,568 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 7.15255737305e-07
-2020-02-11 14:41:32,626 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884536743
-2020-02-11 14:41:32,626 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884536743
-2020-02-11 14:41:32,626 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 4.76837158203e-07
-2020-02-11 14:41:32,719 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884489059
-2020-02-11 14:41:32,719 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884489059
-2020-02-11 14:41:32,719 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 7.15255737305e-07
-2020-02-11 14:41:32,785 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:32,786 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:32,853 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:32,854 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:32,854 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.19209289551e-06
-2020-02-11 14:41:32,902 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
-2020-02-11 14:41:33,015 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884250641
-2020-02-11 14:41:33,016 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884250641
-2020-02-11 14:41:33,016 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.66893005371e-06
-2020-02-11 14:41:33,071 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:33,071 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:33,071 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 4.76837158203e-07
-2020-02-11 14:41:33,146 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:33,146 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:33,146 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -4.76837158203e-07
-2020-02-11 14:41:33,223 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884298325
-2020-02-11 14:41:33,224 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884298325
-2020-02-11 14:41:33,224 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
-2020-02-11 14:41:33,299 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:33,300 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:33,300 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 7.15255737305e-07
-2020-02-11 14:41:33,371 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884417534
-2020-02-11 14:41:33,371 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884417534
-2020-02-11 14:41:33,371 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.66893005371e-06
-2020-02-11 14:41:33,445 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.21884608269
-2020-02-11 14:41:33,445 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.21884608269
-2020-02-11 14:41:33,445 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.38418579102e-06
-2020-02-11 14:41:33,521 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -2.2188436985
-2020-02-11 14:41:33,521 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -2.2188436985
-2020-02-11 14:41:33,521 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -4.76837158203e-07
-2020-02-11 14:41:33,522 - qtpyvcp - DEBUG - Terminating widgets
-2020-02-11 14:41:33,527 - qtpyvcp - DEBUG - Terminating clock plugin
-2020-02-11 14:41:33,527 - qtpyvcp - DEBUG - Terminating notifications plugin
-2020-02-11 14:41:33,527 - qtpyvcp.plugins.notifications - DEBUG - Saving messages to /home/andre/linuxcnc/configs/RedDragon_machine/.messages.json
-2020-02-11 14:41:33,550 - qtpyvcp - DEBUG - Terminating offsettable plugin
-2020-02-11 14:41:33,551 - qtpyvcp - DEBUG - Terminating tooltable plugin
-2020-02-11 14:41:33,551 - qtpyvcp - DEBUG - Terminating position plugin
-2020-02-11 14:41:33,551 - qtpyvcp - DEBUG - Terminating settings plugin
-2020-02-11 14:41:33,551 - qtpyvcp.plugins.settings - DEBUG - Saving persistent settings to /home/andre/linuxcnc/configs/RedDragon_machine/.settings.json
-2020-02-11 14:41:33,552 - qtpyvcp - DEBUG - Terminating status plugin
+2020-02-12 14:33:05,447 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
+2020-02-12 14:33:05,447 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
+2020-02-12 14:33:05,448 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
+2020-02-12 14:33:05,448 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
+2020-02-12 14:33:05,448 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
+2020-02-12 14:33:05,448 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.000 (+0.000) - in script
+2020-02-12 14:33:05,448 - qtpyvcp.vcp_launcher - DEBUG - Loading data plugings
+2020-02-12 14:33:05,448 - qtpyvcp.plugins - DEBUG - Loading plugin 'status' from 'qtpyvcp.plugins.status:Status'
+2020-02-12 14:33:05,454 - qtpyvcp.plugins - DEBUG - Loading plugin 'settings' from 'qtpyvcp.plugins.settings:Settings'
+2020-02-12 14:33:05,455 - qtpyvcp.plugins - DEBUG - Loading plugin 'position' from 'qtpyvcp.plugins.positions:Position'
+2020-02-12 14:33:05,455 - qtpyvcp.plugins - DEBUG - Loading plugin 'tooltable' from 'qtpyvcp.plugins.tool_table:ToolTable'
+2020-02-12 14:33:05,456 - qtpyvcp.plugins - DEBUG - Loading plugin 'offsettable' from 'qtpyvcp.plugins.offset_table:OffsetTable'
+2020-02-12 14:33:05,458 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
+2020-02-12 14:33:05,459 - qtpyvcp.plugins - DEBUG - Loading plugin 'notifications' from 'qtpyvcp.plugins.notifications:Notifications'
+2020-02-12 14:33:05,463 - qtpyvcp.plugins - DEBUG - Loading plugin 'clock' from 'qtpyvcp.plugins.clock:Clock'
+2020-02-12 14:33:05,463 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.015 (+0.015) - done loading data plugins
+2020-02-12 14:33:05,464 - qtpyvcp.vcp_launcher - DEBUG - Initializing app
+2020-02-12 14:33:05,511 - qtpyvcp - DEBUG - Initializing status plugin
+2020-02-12 14:33:05,512 - qtpyvcp.plugins.status - DEBUG - Starting periodic updates with 75ms cycle time
+2020-02-12 14:33:05,512 - qtpyvcp - DEBUG - Initializing settings plugin
+2020-02-12 14:33:05,512 - qtpyvcp - DEBUG - Initializing position plugin
+2020-02-12 14:33:05,512 - qtpyvcp - DEBUG - Initializing tooltable plugin
+2020-02-12 14:33:05,512 - qtpyvcp - DEBUG - Initializing offsettable plugin
+2020-02-12 14:33:05,513 - qtpyvcp - DEBUG - Initializing notifications plugin
+2020-02-12 14:33:05,514 - qtpyvcp - DEBUG - Initializing clock plugin
+2020-02-12 14:33:05,514 - qtpyvcp - INFO - Loading QSS stylesheet file: /home/andre/probe_basic/probe_basic/probe_basic.qss
+2020-02-12 14:33:05,514 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.066 (+0.050) - done initializing app
+2020-02-12 14:33:05,514 - qtpyvcp.vcp_launcher - DEBUG - Loading dialogs
+2020-02-12 14:33:05,616 - qtpyvcp.widgets.dialogs.base_dialog - DEBUG - Loading dialog from ui_file: /home/andre/qtpyvcp/qtpyvcp/widgets/dialogs/tooledit_dialog.ui
+2020-02-12 14:33:05,625 - qtpyvcp.vcp_launcher - DEBUG - Time: 0.177 (+0.111) - done loading dialogs
+2020-02-12 14:33:05,625 - qtpyvcp.vcp_launcher - DEBUG - Loading windows
+2020-02-12 14:33:08,020 - qtpyvcp.vcp_launcher - DEBUG - Time: 2.572 (+2.395) - done loading windows
+2020-02-12 14:33:08,021 - qtpyvcp.vcp_launcher - DEBUG - Initializing widgets
+2020-02-12 14:33:08,042 - qtpyvcp.vcp_launcher - DEBUG - Time: 2.594 (+0.022) - done initializing widgets
+2020-02-12 14:33:08,042 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/postgui_call_list.hal
+2020-02-12 14:33:08,661 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:08,757 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:08,757 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:08,830 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:08,831 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:08,831 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:08,923 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:08,923 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:08,923 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:08,980 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:08,981 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:08,981 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:09,055 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:09,055 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:09,055 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:09,198 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:09,198 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:09,199 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:09,297 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:09,297 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:09,298 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:09,374 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:09,376 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:09,376 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:09,448 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:09,449 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:09,525 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023511887
+2020-02-12 14:33:09,525 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023511887
+2020-02-12 14:33:09,526 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:09,561 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 3.81469726562e-06
+2020-02-12 14:33:09,678 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:09,678 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:09,678 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:09,786 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:09,862 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:10,032 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:10,032 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:10,032 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.86102294922e-06
+2020-02-12 14:33:10,202 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:10,203 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:10,203 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:10,228 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:10,228 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:10,228 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:10,259 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:10,260 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:10,334 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:10,334 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:10,404 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:10,404 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:10,479 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:10,479 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:10,480 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:10,554 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:10,554 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:10,554 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:10,632 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:10,632 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:10,632 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:10,705 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:10,705 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:10,705 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:10,868 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:10,869 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:10,869 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.86102294922e-06
+2020-02-12 14:33:10,951 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:10,951 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:10,951 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:10,986 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:11,080 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:11,080 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:11,080 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:11,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:11,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:11,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:11,211 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:11,304 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:11,305 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:11,305 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:11,455 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:11,455 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:11,455 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:11,511 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:11,586 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:11,680 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:11,680 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:11,680 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:11,737 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:11,831 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:11,831 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:11,831 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.86102294922e-06
+2020-02-12 14:33:11,905 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:11,906 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:11,906 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:11,961 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:12,073 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:12,073 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:12,074 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:12,111 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 2.86102294922e-06
+2020-02-12 14:33:12,186 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:12,261 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:12,449 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:12,449 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:12,449 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:12,523 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:12,523 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:12,524 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:12,598 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:12,598 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:12,598 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:12,636 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:12,711 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:12,805 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:12,806 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:12,806 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:12,911 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:12,912 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:12,912 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:13,037 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:13,038 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:13,038 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 1.90734863281e-06
+2020-02-12 14:33:13,102 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:13,102 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:13,102 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:13,106 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:13,187 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 9.53674316406e-07
+2020-02-12 14:33:13,333 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:13,333 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:13,333 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:13,356 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:13,356 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:13,356 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:13,404 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:13,405 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:13,405 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:13,554 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:13,555 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:13,555 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:13,634 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:13,634 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:13,634 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -2.86102294922e-06
+2020-02-12 14:33:13,687 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -3.81469726562e-06
+2020-02-12 14:33:13,783 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023492813
+2020-02-12 14:33:13,783 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023492813
+2020-02-12 14:33:13,783 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:13,930 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023511887
+2020-02-12 14:33:13,930 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023511887
+2020-02-12 14:33:13,930 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 3.81469726562e-06
+2020-02-12 14:33:14,006 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:14,006 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:14,006 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -1.90734863281e-06
+2020-02-12 14:33:14,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.1023464203
+2020-02-12 14:33:14,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.1023464203
+2020-02-12 14:33:14,155 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: -9.53674316406e-07
+2020-02-12 14:33:14,230 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102350235
+2020-02-12 14:33:14,230 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102350235
+2020-02-12 14:33:14,230 - qtpyvcp.plugins.status - DEBUG - JOINT_1 ferror_current: 0.0
+2020-02-12 14:33:14,350 - qtpyvcp.plugins.status - DEBUG - JOINT_1 output: -11.102347374
+2020-02-12 14:33:14,350 - qtpyvcp.plugins.status - DEBUG - JOINT_1 input: -11.102347374
+2020-02-12 14:33:14,353 - qtpyvcp - DEBUG - Terminating widgets
+2020-02-12 14:33:14,358 - qtpyvcp - DEBUG - Terminating clock plugin
+2020-02-12 14:33:14,358 - qtpyvcp - DEBUG - Terminating notifications plugin
+2020-02-12 14:33:14,358 - qtpyvcp.plugins.notifications - DEBUG - Saving messages to /home/andre/linuxcnc/configs/RedDragon_machine/.messages.json
+2020-02-12 14:33:14,358 - qtpyvcp - DEBUG - Terminating offsettable plugin
+2020-02-12 14:33:14,358 - qtpyvcp - DEBUG - Terminating tooltable plugin
+2020-02-12 14:33:14,359 - qtpyvcp - DEBUG - Terminating position plugin
+2020-02-12 14:33:14,359 - qtpyvcp - DEBUG - Terminating settings plugin
+2020-02-12 14:33:14,359 - qtpyvcp.plugins.settings - DEBUG - Saving persistent settings to /home/andre/linuxcnc/configs/RedDragon_machine/.settings.json
+2020-02-12 14:33:14,359 - qtpyvcp - DEBUG - Terminating status plugin

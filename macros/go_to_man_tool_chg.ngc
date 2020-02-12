@@ -1,0 +1,17 @@
+o<go_to_man_tool_chg> sub
+
+( define the variables you like to pull from the settings widget )
+( the variable is the same name like the widget )
+#<x_manualtool_change_position> =#1
+#<y_manualtool_change_position> =#2
+#<z_manualtool_change_position> =#3
+#<z_safe> = #4
+
+(msg, go to Manual Tool Change Position)
+
+G53 G0 Z[#<z_safe>]
+G53 G0 X[#<x_manualtool_change_position>] Y[#<y_manualtool_change_position>]
+G53 G0 Z[#<z_manualtool_change_position>]
+
+o<go_to_man_tool_chg> endsub
+M2

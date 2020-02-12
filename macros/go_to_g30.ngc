@@ -1,0 +1,12 @@
+o<go_to_g30> sub
+
+#<z_safe> = #1
+
+(msg, go to Tool Touch Off Position G30)
+
+G53 G0 Z#<z_safe>
+G30 x0 y0
+G30 z0
+
+o<go_to_g30> endsub
+M2

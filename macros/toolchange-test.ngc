@@ -1,0 +1,15 @@
+o<toolchange-test> sub
+(msg, hier sind wir im Toolchange)
+
+o100 if [EXISTS[#<_ini[andre]atc_istaktiv>]]
+  (debug, ini-atcistaktiv exists: #<_ini[andre]atc_istaktiv>)
+o100 endif 
+
+o101 if [EXISTS[#<_ini[andre]wasistdas>]]
+  (debug, ini-wasistdas exists: #<_ini[andre]wasistdas>)
+o101 endif 
+
+(debug, or #1 manual, ist aktiv-> #<_ini[andre]atc_istaktiv>)
+
+o<toolchange-test> endsub
+m2
