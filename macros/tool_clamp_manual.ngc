@@ -1,0 +1,18 @@
+; HSD clamp control, will be called from 
+; tool_clamp_gui.ngc
+; Andre M 2020-02-19
+
+o<tool_clamp_manual> sub
+
+;(debug, the Clamp will open in #<_ini[dwell]clamp_DELAY_t sec.)
+; ready to change tool, open clamp after xx sec
+G4 P #<_ini[dwell]clamp_DELAY_t>
+M64 P #<_ini[pins]CLAMP> 
+
+; after xx sec, close clamp, out-02
+G4 P #<_ini[dwell]CLAMP_HOLD_T>
+M65 P #<_ini[pins]CLAMP> 
+
+;M61 Q0 G49 #5210 = 0
+
+o<tool_clamp_manual> endsub

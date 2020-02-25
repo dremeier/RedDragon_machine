@@ -1,0 +1,25 @@
+; HSD clamp control, will be called from 
+; tool_manual_change.ngc  (M6 remap)
+; Andre M 2020-02-19
+
+o<tool_clamp_out> sub
+
+;(debug, the Clamp will open in #<_ini[dwell]clamp_DELAY_t sec.)
+; ready to change tool, open clamp after xx sec
+G4 P #<_ini[dwell]clamp_DELAY_t>
+M64 P #<_ini[pins]CLAMP> 
+
+; after xx sec, close clamp, out-02
+G4 P #<_ini[dwell]CLAMP_HOLD_T>
+M65 P #<_ini[pins]CLAMP> 
+
+(debug, press NO-TOOL btn4)
+; wait for no tool in spindel, to confirm there is no tool.
+M66 P #<_ini[pins]notool> L1 Q#<_ini[dwell]ack_secs>
+
+o310 if [#5399 LT 1] ; checks the status of the M66, if timeover the abort
+        o<on_abort> call
+        M2
+o310 endif
+
+o<tool_clamp_out> endsub

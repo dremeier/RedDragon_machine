@@ -1,17 +1,17 @@
 o<go_to_man_tool_chg> sub
 
-( define the variables you like to pull from the settings widget )
-( the variable is the same name like the widget )
-#<x_manualtool_change_position> =#1
-#<y_manualtool_change_position> =#2
-#<z_manualtool_change_position> =#3
-#<z_safe> = #4
 
-(msg, go to Manual Tool Change Position)
-
-G53 G0 Z[#<z_safe>]
-G53 G0 X[#<x_manualtool_change_position>] Y[#<y_manualtool_change_position>]
-G53 G0 Z[#<z_manualtool_change_position>]
+;G91 			; G92 works only in relativ mode so set to G91
+;g92 x0y0z0      ; set offsets for G92 to zero, means G53 and G92 are the same
+;(debug, #5211 #5212 #5213)
+;G90
+; move to toolchange position: z-safe, then xy, then z-toolchange-pos, if the Spindle is not already in Postion
+;o030 if [[#5211 NE #<_ini[change_position]x>] OR [#5212 NE #<_ini[change_position]y>] OR [#5213 NE #<_ini[change_position]z>]]
+        g53 g1 F800 Z #<_ini[change_position]z-safe>
+        g53 g1 F800 X #<_ini[change_position]x> Y #<_ini[change_position]y>
+        g53 g1 F1000 Z #<_ini[change_position]z>
+;o030 endif
+;g92.1
 
 o<go_to_man_tool_chg> endsub
 M2

@@ -1,9 +1,14 @@
-%
+
 o<on_abort> sub
 
-G90
-G40
-G49
+(print, on_abort executing)
+(msg, aborting)
+
+M5
+M65 P#<_ini[pins]SEALINGAIR> ;sealing air off
+M65 P #<_ini[pins]CLAMP> 
+
+o<reset_state> call
 
 o<on_abort> endsub
-%
+m2

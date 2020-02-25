@@ -3,8 +3,8 @@ O<go_to_home> sub
 #<z_safe> = #1
 (msg, go to absolute Home Position)
 
-G53 G0 Z#<z_safe>
-G53 G0 X5 Y5
+G53 G0 Z0;#<z_safe>
+G53 G0 X0 Y0
  
 O<go_to_home> endsub
 M2

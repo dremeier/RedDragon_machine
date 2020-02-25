@@ -1,1 +1,20 @@
-{}
+{
+    "machine-parameters.x-park-pos": 150.0, 
+    "machine-parameters.y-park-pos": 80.0, 
+    "machine-parameters.z-park-pos": -50.0, 
+    "machine-parameters.z-safe": -5.0, 
+    "machine.jog.linear-speed": 2184.0, 
+    "manual-spindle.set-spindle-speed": 18000, 
+    "manual-tool-change-position.x-manualtool-change-position": 50.0, 
+    "manual-tool-change-position.y-manualtool-change-position": 60.0, 
+    "manual-tool-change-position.z-manualtool-change-position": -15.0, 
+    "tool-setter-probe.fast-probe-fr": 1000.0, 
+    "tool-setter-probe.mid-probe-fr": 100.0, 
+    "tool-setter-probe.retract-distance": 5.0, 
+    "tool-setter-probe.retract-distance-2": 1.0, 
+    "tool-setter-probe.slow-probe-fr": 3.0, 
+    "tool-setter-probe.spindle-nose-height": 19.0, 
+    "tool-setter-probe.spindle-touch-speed": 4000, 
+    "tool-setter-probe.xy-max-travel": 50.0, 
+    "tool-setter-probe.z-max-travel": 250.0
+}

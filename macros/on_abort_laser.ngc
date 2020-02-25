@@ -1,0 +1,14 @@
+o<on_abort_laser> sub
+
+(msg, aborting laser touch-off sequence)
+
+M5
+G90
+G53 Z-5
+M65 P10 ; laser-on
+M65 P11 ; laser-shutter
+M65 P12	; laser-sealingai
+M65 P13 ; clear-air-blast
+
+o<on_abort_laser> endsub
+m2

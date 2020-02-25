@@ -1,0 +1,67 @@
+; manual toolchange with automatic tool length probe 
+; as M6 remap, called from change_prolog
+; Andre M. 2020-02-18
+
+o<tool_manual_change> sub
+
+; safe actual state for later restore
+#<metric> = #<_metric>
+#<absolute> = #<_absolute>
+#<feed> = #<_feed>
+
+;assign the variables passed by M6 to some parameters
+#100 = #<selected_tool>
+#110 = #<tool_in_spindle>
+#120 = #<selected_pocket>
+
+(debug,selectet_tool #<selected_tool> tool_inSpindle #<tool_in_spindle> Pocket #<selected_pocket> )
+
+o10 if [#<selected_tool> EQ #<tool_in_spindle>] ; checks if tool in the spindle is same as requested
+(msg, selected Tool already in Spindle)
+ o<manual_change> endsub [1]
+M2
+o10 endif    
+
+G21 (TLO and toolchange position is in mm as per ini)
+; G90 (absolute, need later for touch-off)
+
+;if spindel is on then M5 to off
+o12 if [#<_spindle_on> EQ 1]
+        M5
+o12 endif
+
+; if mist or cooland was on safe the state
+#<mist_state> = #<_mist>
+#<flood_state> = #<_flood> 
+o20 if [[#<_mist> EQ 1] OR [#<_flood> EQ 1]]
+        M9                  ; all off
+o20 endif
+
+o<go_to_man_tool_chg> call
+
+; Sealing air to on, so it is easyer to change toll and remove chips and dust from the cone (Sperrluft an)
+M64 P #<_ini[pins]SEALINGAIR> 
+
+o30 if [#110 LT 1]                             ; tool Nr. in Spindle
+        (debug, insert ToolNr. #100 )           ; selected tool
+        o<tool_clamp_in> call
+o30 else
+        (debug, remove ToolNr. #110)
+        o<tool_clamp_out> call
+        
+        (debug, insert ToolNr. #100 )           ; selected tool     
+        o<tool_clamp_in> call
+o30 endif
+
+M65 P#<_ini[pins]SEALINGAIR> ;sealing air off
+(debug, Tool inserted with success)
+
+; --------------------------------------------------------------------
+
+; restore g20/21, g90/g91, feed
+;M65 P#<_ini[pins]enable> ; disable table
+O<restore> call [#<metric>] [#<absolute>] [#<feed>] [#<mist_state>] [#<flood_state>]
+
+; succeed by returning a positive value
+o<tool_manual_change> endsub [1]
+m2

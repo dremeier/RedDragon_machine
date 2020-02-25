@@ -1,9 +1,9 @@
 o<go_to_zero> sub
-(msg, go to relativ zero, Z1)
+(msg, go to relativ zero, Z+1)
 
 #<z_safe> = #1
-
- o<100> if [#5422 LT 50]
+G90
+ o<100> if [#5422 LT 50] ;Current Z relative position in the active coordinate system including all offsets and in the current program units
    G53 G0 Z[#<z_safe>]
    G0 X0 Y0
    G0 Z1
@@ -13,5 +13,4 @@ o<go_to_zero> sub
  o<100> endif
 
 o<go_to_zero> endsub
-
 M2

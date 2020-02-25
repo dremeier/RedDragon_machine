@@ -3,6 +3,7 @@
 source hallib/external_IO.hal					# HAL Pins aus qtpyvcp
 source hallib/TsHW_andre.hal					# Handrad
 source hallib/time.hal 						# machine runtime timer.hal
+source hallib/toolstuff.hal 
 
 #********************** Options ?*************************************
 #source toolchange_index.hal

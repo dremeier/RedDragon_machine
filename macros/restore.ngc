@@ -22,5 +22,14 @@ O500 if [#3 NE #<_feed>]
      F[#3]
 O500 endif
 
+o700 if [#4 EQ 1]
+		M7
+o700 endif
+
+o800 if [#5 EQ 1]
+		M8
+o800 endif
+
+
 O<restore> endsub
 m2

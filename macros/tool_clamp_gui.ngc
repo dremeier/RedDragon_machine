@@ -1,0 +1,19 @@
+; to open the clamp and sealing air manualy from the GUI
+; Andre 2020-02-18
+
+o<tool_clamp_gui> sub
+
+;if spindel is on then M5 to off
+o100 if [#<_spindle_on> EQ 1]
+        M5
+o100 endif
+M9 ; coolant off
+o<go_to_man_tool_chg> call
+
+; Sealing air to on, so it is easyer to change tool and remove chips and dust from the cone (Sperrluft an)
+M64 P #<_ini[pins]SEALINGAIR> 
+o<tool_clamp_manual> call 
+M65 P#<_ini[pins]SEALINGAIR> ;sealing air off
+
+o<tool_clamp_gui> endsub
+m2

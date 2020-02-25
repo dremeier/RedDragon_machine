@@ -1,0 +1,22 @@
+# ready to change tool, sperrluft an, open Clamp after 3 sec
+#net tool-change  motion.digital-out-00   gladevcp.change-led 
+
+
+net tool-changed motion.digital-in-00
+net toolno       motion.analog-out-00    
+
+
+#net probing        	motion.digital-out-01  	gladevcp.probing-led
+#net enable         	motion.digital-out-02  	gladevcp.enable
+net hsd-clamp 			motion.digital-out-03	hm2_5i24.0.7i90.0.0.p1-out-07
+#net hsd-sealingair 	motion.digital-out-04	
+
+net hsd-clamp-state		motion.digital-in-03	#hm2_5i24.0.7i90.0.0.p3-in-01
+net hsd-tool-safe-in	motion.digital-in-02	#hm2_5i24.0.7i90.0.0.p3-in-02
+net hsd-no-tool			motion.digital-in-04	#hm2_5i24.0.7i90.0.0.p3-in-04
+
+#net probe-contact  gladevcp.probe-contact motion.probe-input 
+#net reftool 	   gladevcp.reftool       motion.digital-in-01
+
+#net reflen	   motion.analog-out-01   gladevcp.reflen
+#net currlen	   motion.analog-out-02   gladevcp.currlen

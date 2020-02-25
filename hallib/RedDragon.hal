@@ -140,6 +140,7 @@ net yvelcmd joint.1.vel-cmd        => hm2_5i24.0.stbl.0.5.vel_cmd
 net yposfb  joint.1.motor-pos-fb  <=  hm2_5i24.0.stbl.0.5.pos_fb
 net yenable joint.1.amp-enable-out => hm2_5i24.0.stbl.0.5.enable
 net yfault  joint.1.amp-fault-in  <=  hm2_5i24.0.stbl.0.5.fault
+net yindex  joint.1.index-enable  <=> hm2_5i24.0.stbl.0.5.index_enable    # Index Homing einschalten !
 
 # ---setup home / limit switch signals---
 net home-x     		=> joint.1.home-sw-in
@@ -201,15 +202,17 @@ setp hm2_5i24.0.pwmgen.00.scale 		[SPINDLE_0]OUTPUT_SCALE
 setp hm2_5i24.0.pwmgen.00.output-type 1
 setp hm2_5i24.0.pwmgen.00.offset-mode 0					# 1 wenn value +- dann bei 0 = 50%
 setp hm2_5i24.0.pwmgen.00.out0.invert_output true    	# damit der PWM Ausgang bei steigendem Value auch ansteigt
-setp hm2_5i24.0.gpio.016.is_output 1					# gpio 016 ist Aux (M4) - auf Ausgang setzen
-setp hm2_5i24.0.gpio.016.invert_output 1
+setp hm2_5i24.0.pwmgen.00.out1.invert_output true 		# gpio 017 DIR M4 - high if pwmgen.00.value will be minus
+setp hm2_5i24.0.gpio.016.is_output true					# gpio 016 Aux M3 - auf Ausgang setzen
+setp hm2_5i24.0.gpio.016.invert_output true
 
-net spindle-speed-cmd 		spindle.0.speed-out-abs => hm2_5i24.0.pwmgen.00.value
-net spindle-on 				spindle.0.on 	 		=> hm2_5i24.0.pwmgen.00.enable		# FU und PWM enable
+net spindle-speed-cmd 		<= spindle.0.speed-out 	=> hm2_5i24.0.pwmgen.00.value 			# Drehzal für PWM Ausgang
+net spindle-on 				<= spindle.0.on	 		=> hm2_5i24.0.pwmgen.00.enable			# FU und PWM enable
 net spindle-fwd 			=> spindle.0.forward 	=> hm2_5i24.0.gpio.016.out 				# gpio 016 / Aux (M3)    
-net spindle-rev 			=> spindle.0.reverse 	=> hm2_5i24.0.7i90.0.0.p1-out-02		# M4 - da DIR nicht ansprechbar -> 7i90
+#net spindle-rev 			=> spindle.0.reverse 	=> hm2_5i24.0.7i90.0.0.p1-out-02		# M4 - ersatz -> 7i90
 #net spindle-at-speed 		<= spindle.0.at−speed  	<= hm2_5i24.0.7i90.0.0.p3-in-13
 #sets spindle-at-speed true
+
 
 
 #******************************
@@ -258,13 +261,6 @@ net in-position           	<=  motion.in-position
 net machine-is-enabled   	<=  motion.motion-enabled
 net is-reference			<= motion.teleop-mode 		#-> wenn maschine referenz gefahren
 
-#  ---digital in / out signals---
-net dout-00 	<=  motion.digital-out-00
-net dout-01 	<=  motion.digital-out-01
-net din-00	=>  motion.digital-in-00
-net din-01     	=>  motion.digital-in-01
-net din-02     	=>  motion.digital-in-02
-net home-x     	=>  motion.digital-in-03
 
 #########################################################################
 #  				---estop signals---										#

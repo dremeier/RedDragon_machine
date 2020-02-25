@@ -2,17 +2,22 @@
 # loaded in postgui_call_list.hal
 # Andre 27.01.2020
 
+loadrt or2 names=or2.sealingair
+addf or2.sealingair servo-thread
 
 ################### qtpyvcp hal-pins ####################################
 net portallicht 	<= qtpyvcp.portallicht-btn.checked 			=> hm2_5i24.0.7i90.0.0.p1-out-16
 net 3d_finder_down	<= qtpyvcp.finder3d-down-btn.checked		=> hm2_5i24.0.7i90.0.0.p1-out-10
 net 3d_finder_inpos <= qtpyvcp.finder3d-up-led.on				<= hm2_5i24.0.7i90.0.0.p3-in-06
-net sperrluft		<= qtpyvcp.sperrluft-btn.checked			=> hm2_5i24.0.7i90.0.0.p1-out-06
+net sealingair_gui		<= or2.sealingair.in0 					<= qtpyvcp.sperrluft-btn.checked
+net sealingair_moition	<= or2.sealingair.in1 					<= motion.digital-out-04
+net hsd-sealingair		<= or2.sealingair.out 					=> hm2_5i24.0.7i90.0.0.p1-out-06
 net spindelluefter	<= qtpyvcp.spindelluefter-btn.checked		=> hm2_5i24.0.7i90.0.0.p1-out-21
 net absaugung		<= qtpyvcp.staubsauger-btn.checked			=> hm2_5i24.0.7i90.0.0.p1-out-15
 net vacuum_pump		<= qtpyvcp.vacuum-btn.checked				=> hm2_5i24.0.7i90.0.0.p1-out-14
 net vacuum_press	<= qtpyvcp.vacuumtisch-press-btn.checked	=> hm2_5i24.0.7i90.0.0.p1-out-12
 net probe-in		=> qtpyvcp.probe-led.on
+net spindle-speed-cmd	=> qtpyvcp.spindle-speed-dro.in-f		# <= von spindle.o.speed-out
 
 ############### qtypvcp status halLEDs  ################################################
 net home-x	=> qtpyvcp.x-home-sw.on
@@ -22,15 +27,24 @@ net home-z	=> qtpyvcp.z-home-sw.on
 
 net atc-in-pos			<= qtpyvcp.atc-in-pos.on 		<= hm2_5i24.0.7i90.0.0.p3-in-22
 net fu-rpm-erreicht 	<= qtpyvcp.fu-rpm-erreicht.on 	<= hm2_5i24.0.7i90.0.0.p3-in-13
-net hsd-clamp-open 		<= qtpyvcp.hsd-clamp-open.on 	<= hm2_5i24.0.7i90.0.0.p3-in-01
-net hsd-kein-wz 		<= qtpyvcp.hsd-kein-wz.on 		<= hm2_5i24.0.7i90.0.0.p3-in-04
+net hsd-clamp-state		<= qtpyvcp.hsd-clamp-open.on 	<= hm2_5i24.0.7i90.0.0.p3-in-01
+net hsd-no-tool			<= qtpyvcp.hsd-kein-wz.on 		<= hm2_5i24.0.7i90.0.0.p3-in-04
 net hsd-spindel-steht 	<= qtpyvcp.hsd-spindel-steht.on <= hm2_5i24.0.7i90.0.0.p3-in-03
-net hsd-wz-in 			<= qtpyvcp.hsd-wz-in.on 		<= hm2_5i24.0.7i90.0.0.p3-in-02
+net hsd-tool-safe-in	<= qtpyvcp.hsd-wz-in.on 		<= hm2_5i24.0.7i90.0.0.p3-in-02
 net laser-ok			<= qtpyvcp.laser-ok.on 			<= hm2_5i24.0.7i90.0.0.p2-in-17
-net laser-on			<= qtpyvcp.laser-on.on 			<= hm2_5i24.0.7i90.0.0.p1-out-04
-net laser-schutter		<= qtpyvcp.laser-shutter.on 	<= hm2_5i24.0.7i90.0.0.p1-out-13
-net laser-sperrluft		<= qtpyvcp.laser-sperrluft.on 	<= hm2_5i24.0.7i90.0.0.p1-out-20
 net laser-satic			<= qtpyvcp.laser-static.on 		<= hm2_5i24.0.7i90.0.0.p2-in-16
+net laser-on			<= qtpyvcp.laser-on.on 			
+net laser-shutter		<= qtpyvcp.laser-shutter.on 	
+net laser-sealingair	<= qtpyvcp.laser-sperrluft.on 	
+
+################## Laser touch-off I/0 #################################################
+net laser-ok 			=> motion.digital-in-10
+net laser-static		=> motion.digital-in-11
+net laser-on 			<= motion.digital-out-10		=> hm2_5i24.0.7i90.0.0.p1-out-04
+net laser-shutter 		<= motion.digital-out-11		=> hm2_5i24.0.7i90.0.0.p1-out-13
+net laser-sealingair	<= motion.digital-out-12		=> hm2_5i24.0.7i90.0.0.p1-out-20
+net clear-air-blast		<= motion.digital-out-13		=> hm2_5i24.0.7i90.0.0.p1-out-11
+
 #****************************************************************************************#
 
 #loadrt conv_s32_float names=conv_s32_float.jogspeed
