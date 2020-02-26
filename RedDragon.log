@@ -1,14 +1,76 @@
-2020-02-24 18:51:58,440 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
-2020-02-24 18:51:58,441 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+71.g39907aa1
-2020-02-24 18:51:58,793 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
-2020-02-24 18:51:58,793 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
-2020-02-24 18:51:58,793 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
-2020-02-24 18:51:58,794 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
-2020-02-24 18:51:58,794 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
-2020-02-24 18:51:58,801 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
-2020-02-24 18:51:58,866 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
-2020-02-24 18:52:00,937 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal
-2020-02-24 18:52:03,230 - qtpyvcp.plugins.notifications - INFO - aborting
-2020-02-24 18:52:04,821 - qtpyvcp.actions.machine_actions - INFO - Homing all axes
-2020-02-24 18:52:21,809 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<set_spindle_speed_ff> call [3000.0]
-2020-02-24 18:57:05,741 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-25 19:39:21,468 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
+2020-02-25 19:39:21,468 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+71.g39907aa1
+2020-02-25 19:39:21,776 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
+2020-02-25 19:39:21,776 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
+2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
+2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
+2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
+2020-02-25 19:39:21,784 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
+2020-02-25 19:39:21,870 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
+2020-02-25 19:39:23,775 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal
+2020-02-25 19:39:27,500 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-25 19:39:29,164 - qtpyvcp.actions.machine_actions - INFO - Homing all axes
+2020-02-25 19:39:36,063 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: M61 Q4 G43
+2020-02-25 19:39:57,042 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
+2020-02-25 19:39:57,042 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
+2020-02-25 19:40:20,427 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
+2020-02-25 19:40:20,427 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
+2020-02-25 19:40:27,364 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
+2020-02-25 19:40:27,364 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
+2020-02-25 19:41:25,359 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<tool_touch_off> call [1000.0] [3.0] [250.0] [0.0] [50.0] [10.0] [0.0000] [0.0] [0.0] [6.0] [10.0] [4000.0]
+2020-02-25 19:41:41,087 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -40.052794 Z Pos: 
+ -40.259600
+2020-02-25 19:41:44,905 - qtpyvcp.plugins.notifications - INFO - tool-length is 9.947206
+2020-02-25 19:50:25,582 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<tool_touch_off> call [1000.0] [3.0] [250.0] [0.0] [50.0] [10.0] [0.0000] [0.0] [0.0] [6.0] [10.0] [4000.0] [100.0]
+2020-02-25 19:50:41,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -24.032464 Z Pos: 
+ -24.201440
+2020-02-25 19:50:44,686 - qtpyvcp.plugins.notifications - INFO - tool-length is 25.967536
+2020-02-25 20:00:21,087 - qtpyvcp.plugins.notifications - ERROR - joint 1 amplifier fault
+2020-02-25 20:00:21,339 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-25 20:28:32,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+ local error = (13) Communication 
+ error
+2020-02-25 20:28:32,286 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+ local error = (7) Too 
+ many errors
+2020-02-25 20:28:32,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+ local error = (3) Timeout 
+
+2020-02-25 20:28:32,686 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+ local error = (13) Communication 
+ error
+2020-02-25 20:28:32,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+ local error = (7) Too 
+ many errors
+2020-02-25 20:28:33,087 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+ local error = (5) Serial 
+ Break Error
+2020-02-25 20:28:33,287 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+ local error = (4) Extra 
+ character
+2020-02-25 20:28:33,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+ local error = (3) Timeout 
+
+2020-02-25 20:28:33,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+ local error = (13) Communication 
+ error
+2020-02-25 20:28:33,887 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+ local error = (7) Too 
+ many errors
+2020-02-25 20:28:34,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+ local error = (3) Timeout 
+
+2020-02-25 20:28:34,287 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
+ local error = (13) Communication 
+ error
+2020-02-25 20:28:34,487 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
+ local error = (3) Timeout 
+
+2020-02-25 20:28:34,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart Serial Comms Error: 
+ There have been more than 
+ 1 errors in 10 thread 
+ executions at least 200 times. 
+ See other error messages for 
+ details.
+2020-02-25 20:28:34,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: ***Smart Serial Port 0 
+ will be stopped***

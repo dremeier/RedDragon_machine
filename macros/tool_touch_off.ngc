@@ -1,3 +1,7 @@
+# tool touch-off for Blume Laser
+# Andre 25.02.2020
+
+
 o<tool_touch_off> sub
 
 (as reminder the digi I/0s)
@@ -9,6 +13,7 @@ o<tool_touch_off> sub
 (net clear-air-blast	<= motion.digital-out-13)
 
 #<fast_probe_fr> = #1    			(set from probe screen fast probe feed rate)
+#<mid_probe_fr> = #13    			(set from probe screen mid probe feedrate)
 #<slow_probe_fr> = #2    			(set from probe screen slow probe feedrate)
 #<z_max_travel> = #3    			(max z distance the tool travels before erroring out if not contact is made)
 #<xy_max_travel> = #4    			(max xy distance the tool travels before erroring out if not contact is made)
@@ -42,16 +47,31 @@ G49    (cancel tlo - tool length compensation)
 G90    (set absolute coordinates)
 G53 G0 Z0    (move to z0 home position)
 G53 G0 X#<tool_touch_x_coords> Y#<tool_touch_y_coords>
-G53 G0 Z#<tool_touch_z_coords>
+
+M64 P12 		(laser sealingair on)
+M64 P11			(laser shutter on)
+M64 P10			(laser-on  on)
+M66 P10 L1 Q10	(is laser-ok comes on in 1 sec?)
+
+o50 if [#5399 LT 1] ; checks the status of the M66, if timeover then abort
+        o<on_abort_laser> call
+		M2
+o50 endif
+
 
 M3 S#<spindle_touch_speed>
-
+M64 P13 	; clear-air-blast to on
+G53 G0 Z#<tool_touch_z_coords>
 
 G91
 F #<fast_probe_fr>
-G38.2 Z-[#<z_max_travel>]    (fast tool probe)
+G38.2 Z-[#<z_max_travel>]    (fast tool probe, toward workpiece)
 #<z_fast_probe> = #5063    (save probe result of fast probe to parameters, 5063= Coordinates of a G38 probe result)
-G0 Z[#<retract_distance>]    (retract tool retract distance amount)
+
+F #<mid_probe_fr>
+G38.4 Z[#<retract_distance>]    (mid tool probe, away from workpiece)
+#<z_fast_probe> = #5063    (save probe result of fast probe to parameters, 5063= Coordinates of a G38 probe result)
+M65 P13 ; clear-air-blast to off
 
 (Slow Probe Rule, if Slow Probe FR is set to 0, Slow Probe is Bypassed)
 o<110> if [#<slow_probe_fr> GT 0]
@@ -76,7 +96,14 @@ o<130> if [#<tool_diameter_probe_mode> EQ 1]
   (MSG, Tool Diameter Probing is Not Defined in Subroutine)
 o<130> endif
 
-G49
+M5
+( switch laser off )
+M65 P10 ; laser-on
+M65 P11 ; laser-shutter
+M65 P12	; laser-sealingai
+M65 P13 ; clear-air-blast
+
+;G49
 G90    (set absolute coordinates)
 G53 G0 Z0 (Send Spindle to home zero position)
 
@@ -87,5 +114,4 @@ G10 L1 P #5400 Z [#<new_tool_length_offset>]  (5400 = tool number)
 T #5400 G43  H #5400    (enable tool length offset)
 
 o<tool_touch_off> endsub
-
 M2 (end program)

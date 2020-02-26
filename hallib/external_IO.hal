@@ -36,6 +36,7 @@ net laser-satic			<= qtpyvcp.laser-static.on 		<= hm2_5i24.0.7i90.0.0.p2-in-16
 net laser-on			<= qtpyvcp.laser-on.on 			
 net laser-shutter		<= qtpyvcp.laser-shutter.on 	
 net laser-sealingair	<= qtpyvcp.laser-sperrluft.on 	
+net clear-air-blast		<= qtpyvcp.tool-air-blast.on
 
 ################## Laser touch-off I/0 #################################################
 net laser-ok 			=> motion.digital-in-10
@@ -46,10 +47,5 @@ net laser-sealingair	<= motion.digital-out-12		=> hm2_5i24.0.7i90.0.0.p1-out-20
 net clear-air-blast		<= motion.digital-out-13		=> hm2_5i24.0.7i90.0.0.p1-out-11
 
 #****************************************************************************************#
-
-#loadrt conv_s32_float names=conv_s32_float.jogspeed
-#addf	conv_s32_float.jogspeed	servo-thread
-#net jog-10-in	conv_s32_float.jogspeed.in		<= qtpyvcp.jog-speed.out
-#net zs 			halui.joint.jog-speed 	<= conv_s32_float.jogspeed.out
 
 net pause_1 halui.program.pause  	<= qtpyvcp.pause01-btn.out
