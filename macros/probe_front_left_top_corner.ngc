@@ -2,6 +2,9 @@
 (version: 0.4)
 (date: 04/25/19)
 
+(edit by Andre 26-02-2020)
+(probe offset)
+
 (Probe front left top corner for x,y,z 0,0,0 position)
 (Start probe position is over front left corner of stock)
 (inside the step off width square and within max z distance)
@@ -27,6 +30,8 @@ o<probe_front_left_top_corner> sub
   #<edge_width> = #14          (=0.5000)
   #<probe_mode> = #15          (=0)
   #<max_vel_slider> = #16      (=50)
+  #<x_probe_offset> = #17		(edit by Andre)
+  #<y_probe_offset> = #18		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -104,8 +109,8 @@ o<probe_front_left_top_corner> sub
   (probe mode rules for WCO or probe position measuring only)
   o<140> if [#<probe_mode> EQ 0]
     (Record Zero in selected axes and WCO)
-    G10 L2 P#5220 X[#<x_plus_zero_edge> + #<workspace_x>]
-    G10 L2 P#5220 Y[#<y_plus_zero_edge> + #<workspace_y>]
+    G10 L2 P#5220 X[#<x_plus_zero_edge> + #<workspace_x> + #<x_probe_offset>]	(edit by Andre)
+    G10 L2 P#5220 Y[#<y_plus_zero_edge> + #<workspace_y> + #<y_probe_offset>]	(edit by Andre)
     o<probe_front_left_top_corner> return
   o<140> endif
 

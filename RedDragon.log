@@ -1,76 +1,222 @@
-2020-02-25 19:39:21,468 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
-2020-02-25 19:39:21,468 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+71.g39907aa1
-2020-02-25 19:39:21,776 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
-2020-02-25 19:39:21,776 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
-2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
-2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
-2020-02-25 19:39:21,777 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
-2020-02-25 19:39:21,784 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
-2020-02-25 19:39:21,870 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
-2020-02-25 19:39:23,775 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal
-2020-02-25 19:39:27,500 - qtpyvcp.plugins.notifications - INFO - aborting
-2020-02-25 19:39:29,164 - qtpyvcp.actions.machine_actions - INFO - Homing all axes
-2020-02-25 19:39:36,063 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: M61 Q4 G43
-2020-02-25 19:39:57,042 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
-2020-02-25 19:39:57,042 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
-2020-02-25 19:40:20,427 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
-2020-02-25 19:40:20,427 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
-2020-02-25 19:40:27,364 - qtpyvcp.widgets.button_widgets.subcall_button - WARNING - No input for mid_probe_fr_2 parameter, using default value blue<>
-2020-02-25 19:40:27,364 - qtpyvcp.widgets.button_widgets.subcall_button - ERROR - No value given for parameter mid_probe_fr_2, and no default specified
-2020-02-25 19:41:25,359 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<tool_touch_off> call [1000.0] [3.0] [250.0] [0.0] [50.0] [10.0] [0.0000] [0.0] [0.0] [6.0] [10.0] [4000.0]
-2020-02-25 19:41:41,087 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -40.052794 Z Pos: 
- -40.259600
-2020-02-25 19:41:44,905 - qtpyvcp.plugins.notifications - INFO - tool-length is 9.947206
-2020-02-25 19:50:25,582 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<tool_touch_off> call [1000.0] [3.0] [250.0] [0.0] [50.0] [10.0] [0.0000] [0.0] [0.0] [6.0] [10.0] [4000.0] [100.0]
-2020-02-25 19:50:41,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -24.032464 Z Pos: 
- -24.201440
-2020-02-25 19:50:44,686 - qtpyvcp.plugins.notifications - INFO - tool-length is 25.967536
-2020-02-25 20:00:21,087 - qtpyvcp.plugins.notifications - ERROR - joint 1 amplifier fault
-2020-02-25 20:00:21,339 - qtpyvcp.plugins.notifications - INFO - aborting
-2020-02-25 20:28:32,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+2020-02-26 20:51:25,760 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
+2020-02-26 20:51:25,761 - qtpyvcp - INFO - QtPyVCP Version: v0.3.4+71.g39907aa1
+2020-02-26 20:51:26,088 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
+2020-02-26 20:51:26,088 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
+2020-02-26 20:51:26,088 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
+2020-02-26 20:51:26,088 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
+2020-02-26 20:51:26,088 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
+2020-02-26 20:51:26,099 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
+2020-02-26 20:51:26,159 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
+2020-02-26 20:51:28,084 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal
+2020-02-26 20:51:30,496 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 20:51:32,468 - qtpyvcp.actions.machine_actions - INFO - Homing all axes
+2020-02-26 20:51:41,075 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<go_to_zero> call [0.0]
+2020-02-26 20:51:41,096 - qtpyvcp.plugins.notifications - INFO - go to relativ zero, Z+1 
+
+2020-02-26 20:52:12,249 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: M61 Q99
+2020-02-26 20:52:37,129 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [10.0] [10.0] [5.0] [5.0] [2.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 20:52:43,490 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -8.828986 Z Pos: 
+ -9.003118
+2020-02-26 20:52:52,486 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -3.307340 X Pos: 
+ -3.305332
+2020-02-26 20:52:55,720 - qtpyvcp.actions.base_actions - ERROR - Can't set mode while machine is running
+2020-02-26 20:52:55,767 - qtpyvcp.plugins.notifications - ERROR - G38.2 move finished without making 
+ contact.
+2020-02-26 20:52:55,887 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 20:54:10,829 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<go_to_zero> call [0.0]
+2020-02-26 20:54:11,006 - qtpyvcp.plugins.notifications - INFO - go to relativ zero, Z+1 
+
+2020-02-26 20:54:32,043 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [50.0] [5.0] [5.0] [2.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 20:54:36,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -9.251076 Z Pos: 
+ -9.446785
+2020-02-26 20:55:00,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -33.497335 X Pos: 
+ -33.495328
+2020-02-26 20:55:09,796 - qtpyvcp.actions.base_actions - ERROR - Can't set mode while machine is running
+2020-02-26 20:55:09,824 - qtpyvcp.plugins.notifications - ERROR - joint 1 following error
+2020-02-26 20:55:09,886 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 20:55:56,670 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<go_to_zero> call [0.0]
+2020-02-26 20:55:56,722 - qtpyvcp.plugins.notifications - INFO - go to relativ zero, Z+1 
+
+2020-02-26 20:56:35,370 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [1.0] [5.0] [5.0] [2.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 20:56:39,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -6.151363 Z Pos: 
+ -6.164434
+2020-02-26 20:56:43,327 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 1.548674 X Pos: 
+ 1.550680
+2020-02-26 20:56:43,687 - qtpyvcp.plugins.notifications - ERROR - Probe is already tripped when 
+ starting G38.2 or G38.3 move 
+
+2020-02-26 20:56:55,776 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [1.0] [5.0] [5.0] [2.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 20:56:59,086 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -5.815535 Z Pos: 
+ -5.842294
+2020-02-26 20:57:02,887 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 2.193352 X Pos: 
+ 2.195360
+2020-02-26 20:57:06,487 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 10.223632 Y Pos: 
+ 10.225423
+2020-02-26 21:01:27,129 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [5.0] [5.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 21:01:30,886 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -4.673333 Z Pos: 
+ -4.711209
+2020-02-26 21:01:36,287 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 7.056678 X Pos: 
+ 7.058685
+2020-02-26 21:01:38,923 - qtpyvcp.plugins.notifications - ERROR - Probe is already tripped when 
+ starting G38.2 or G38.3 move 
+
+2020-02-26 21:01:39,113 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 21:02:09,132 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [5.0] [5.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 21:02:12,887 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -4.614236 Z Pos: 
+ -4.662985
+2020-02-26 21:02:16,498 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 8.040345 X Pos: 
+ 8.042352
+2020-02-26 21:02:21,945 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 27.439209 Y Pos: 
+ 27.441289
+2020-02-26 21:04:13,943 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [5.0] [5.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [10.0] [0.0] [15000.0]
+2020-02-26 21:04:17,886 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -0.129774 Z Pos: 
+ -0.178362
+2020-02-26 21:04:22,296 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 1.955686 X Pos: 
+ 1.957692
+2020-02-26 21:04:26,087 - qtpyvcp.plugins.notifications - INFO - Probed Pos: 2.171143 Y Pos: 
+ 2.172308
+2020-02-26 21:06:30,564 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [5.0] [20.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [20.0] [0.0] [15000.0]
+2020-02-26 21:06:34,087 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -1.227838 Z Pos: 
+ -1.279293
+2020-02-26 21:06:38,156 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -10.811332 X Pos: 
+ -10.809327
+2020-02-26 21:06:42,487 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -9.539825 Y Pos: 
+ -9.537604
+2020-02-26 21:07:25,093 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [5.0] [20.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [20.0] [0.0] [15000.0]
+2020-02-26 21:07:32,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -2.236082 Z Pos: 
+ -2.292850
+2020-02-26 21:07:40,486 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -11.603326 X Pos: 
+ -11.601320
+2020-02-26 21:07:45,105 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -13.638245 Y Pos: 
+ -13.636563
+2020-02-26 21:18:29,336 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 Z0.0
+2020-02-26 21:18:30,162 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 Y0.0
+2020-02-26 21:18:31,478 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0
+2020-02-26 21:18:32,140 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 Z0.0
+2020-02-26 21:18:44,007 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [20.0] [0.0] [50.0] [500.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0]
+2020-02-26 21:18:48,287 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -6.078609 Z Pos: 
+ -6.138161
+2020-02-26 21:18:53,907 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -8.565328 X Pos: 
+ -8.563323
+2020-02-26 21:18:58,486 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -12.870880 Y Pos: 
+ -12.869546
+2020-02-26 21:19:48,822 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:19:49,995 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:19:56,929 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:20:19,973 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [20.0] [0.0] [50.0] [100.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0]
+2020-02-26 21:20:25,886 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -2.324907 Z Pos: 
+ -2.385224
+2020-02-26 21:20:42,886 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -2.078077 X Pos: 
+ -2.076072
+2020-02-26 21:20:51,137 - qtpyvcp.plugins.notifications - ERROR - Probe is already tripped when 
+ starting G38.2 or G38.3 move 
+
+2020-02-26 21:20:51,286 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 21:21:11,392 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:21:16,004 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:21:23,789 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [20.0] [0.0] [50.0] [100.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0]
+2020-02-26 21:21:29,086 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -2.389709 Z Pos: 
+ -2.455853
+2020-02-26 21:21:37,487 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -15.514081 X Pos: 
+ -15.512074
+2020-02-26 21:21:47,124 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -11.820129 Y Pos: 
+ -11.818646
+2020-02-26 21:26:21,716 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [20.0] [0.0] [50.0] [100.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0]
+2020-02-26 21:26:33,886 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -13.586981 Z Pos: 
+ -13.679453
+2020-02-26 21:26:41,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -32.412661 X Pos: 
+ -32.410655
+2020-02-26 21:26:48,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -28.119202 Y Pos: 
+ -28.118155
+2020-02-26 21:29:30,041 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:29:35,823 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:29:50,556 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [20.0] [0.0] [50.0] [100.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0] [5.0] [6.0]
+2020-02-26 21:29:50,686 - qtpyvcp.plugins.notifications - INFO - x-offset 5.000000  y-offset 6.000000 
+
+2020-02-26 21:29:55,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -1.770518 Z Pos: 
+ -1.862383
+2020-02-26 21:30:10,093 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -5.690079 X Pos: 
+ -5.688072
+2020-02-26 21:30:23,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -6.027313 Y Pos: 
+ -6.025812
+2020-02-26 21:31:42,090 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:31:44,148 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:31:56,985 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [10.0] [0.0] [50.0] [300.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0] [5.0] [-5.0]
+2020-02-26 21:31:57,088 - qtpyvcp.plugins.notifications - INFO - x-offset 5.000000  y-offset -5.000000 
+
+2020-02-26 21:32:01,087 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -3.204175 Z Pos: 
+ -3.298908
+2020-02-26 21:32:06,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -2.956137 X Pos: 
+ -2.954131
+2020-02-26 21:32:11,687 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -3.826477 Y Pos: 
+ -3.824792
+2020-02-26 21:33:42,978 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:34:00,249 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:37:04,687 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [10.0] [0.0] [50.0] [300.0] [0.0] [1.0] [1.0] [1.0] [20.0] [1.0] [15000.0] [5.0] [10.0]
+2020-02-26 21:37:08,487 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -3.627892 Z Pos: 
+ -3.726483
+2020-02-26 21:37:14,487 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -4.798141 X Pos: 
+ -4.796135
+2020-02-26 21:37:19,286 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -4.521637 Y Pos: 
+ -4.520042
+2020-02-26 21:37:35,126 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<reset_all_data> call
+2020-02-26 21:37:39,019 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: G10 L20 P1 X0.0 Y0.0 Z0.0
+2020-02-26 21:37:42,194 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<probe_front_left_top_corner> call [99.0] [50.0] [80.0] [2.0] [2.0] [10.0] [0.0] [50.0] [300.0] [0.0] [1.0] [1.0] [1.0] [20.0] [0.0] [15000.0] [5.0] [10.0]
+2020-02-26 21:37:45,887 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -4.170661 Z Pos: 
+ -4.274560
+2020-02-26 21:37:52,086 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -3.160137 X Pos: 
+ -3.158134
+2020-02-26 21:37:56,686 - qtpyvcp.plugins.notifications - INFO - Probed Pos: -6.511169 Y Pos: 
+ -6.509045
+2020-02-26 21:38:35,746 - qtpyvcp.actions.machine_actions - INFO - Issuing MDI command: o<go_to_zero> call [0.0]
+2020-02-26 21:38:35,889 - qtpyvcp.plugins.notifications - INFO - go to relativ zero, Z+1 
+
+2020-02-26 22:01:51,129 - qtpyvcp.plugins.notifications - ERROR - joint 1 amplifier fault
+2020-02-26 22:01:51,286 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-02-26 22:01:54,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
  local error = (13) Communication 
  error
-2020-02-25 20:28:32,286 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+2020-02-26 22:01:55,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
  local error = (7) Too 
  many errors
-2020-02-25 20:28:32,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
+2020-02-26 22:01:55,287 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i90.0.0 
  local error = (3) Timeout 
 
-2020-02-25 20:28:32,686 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+2020-02-26 22:01:55,487 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
  local error = (13) Communication 
  error
-2020-02-25 20:28:32,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+2020-02-26 22:01:55,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
  local error = (7) Too 
  many errors
-2020-02-25 20:28:33,087 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+2020-02-26 22:01:55,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
  local error = (5) Serial 
  Break Error
-2020-02-25 20:28:33,287 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+2020-02-26 22:01:56,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
  local error = (4) Extra 
  character
-2020-02-25 20:28:33,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
+2020-02-26 22:01:56,286 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.7i87.0.1 
  local error = (3) Timeout 
 
-2020-02-25 20:28:33,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+2020-02-26 22:01:56,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
  local error = (13) Communication 
  error
-2020-02-25 20:28:33,887 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+2020-02-26 22:01:56,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
  local error = (7) Too 
  many errors
-2020-02-25 20:28:34,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
+2020-02-26 22:01:56,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.TsHW.0.3 
  local error = (3) Timeout 
 
-2020-02-25 20:28:34,287 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
+2020-02-26 22:01:57,086 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
  local error = (13) Communication 
  error
-2020-02-25 20:28:34,487 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
+2020-02-26 22:01:57,286 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart serial card hm2_5i24.0.stbl.0.5 
  local error = (3) Timeout 
 
-2020-02-25 20:28:34,687 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart Serial Comms Error: 
+2020-02-26 22:01:57,486 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: Smart Serial Comms Error: 
  There have been more than 
  1 errors in 10 thread 
  executions at least 200 times. 
  See other error messages for 
  details.
-2020-02-25 20:28:34,886 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: ***Smart Serial Port 0 
+2020-02-26 22:01:57,686 - qtpyvcp.plugins.notifications - ERROR - hm2/hm2_5i24.0: ***Smart Serial Port 0 
  will be stopped***
