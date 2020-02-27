@@ -27,6 +27,8 @@ o<probe_rect_boss> sub
   #<edge_width> = #14          (=0.5000)
   #<probe_mode> = #15          (=0)
   #<max_vel_slider> = #16      (=50)
+  #<x_probe_offset> = #17		(edit by Andre)
+  #<y_probe_offset> = #18		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -172,7 +174,7 @@ o<probe_rect_boss> sub
   (probe mode rules for WCO or probe position measuring only)
   o<120> if [#<probe_mode> EQ 0]
     (Record XY Zero in selected WCO)
-    G10 L2 P#5220 X[#<x_center_probed> + #<workspace_x>] Y[#<y_center_probed> + #<workspace_y>]
+    G10 L2 P#5220 X[#<x_center_probed> + #<workspace_x> + #<x_probe_offset>] Y[#<y_center_probed> + #<workspace_y> + #<y_probe_offset>]	(edit by Andre)
     (Probe Completion Move to Z Clearance Plane, and X Zero, Y Zero)
     o<probe_rect_boss> return
   o<120> endif

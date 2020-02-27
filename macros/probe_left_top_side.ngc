@@ -27,6 +27,8 @@ o<Probe_left_top_side> sub
   #<edge_width> = #14          (=0.5000)
   #<probe_mode> = #15          (=0)
   #<max_vel_slider> = #16      (=50)
+  #<x_probe_offset> = #17		(edit by Andre)
+  #<y_probe_offset> = #18		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -79,7 +81,7 @@ o<Probe_left_top_side> sub
   (probe mode rules for WCO or probe position measuring only)
   o<130> if [#<probe_mode> EQ 0]
     (Record Zero in selected axes and WCO)
-    G10 L2 P#5220 X[#<x_plus_zero_edge> + #<workspace_x>]
+    G10 L2 P#5220 X[#<x_plus_zero_edge> + #<workspace_x> + #<x_probe_offset>]	(edit by Andre)
     o<probe_left_top_side> return
   o<130> endif
 

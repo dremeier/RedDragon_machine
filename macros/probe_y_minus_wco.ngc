@@ -26,6 +26,8 @@ o<probe_y_minus_wco> sub
   #<diameter_hint> = #13       (=1.0000)
   #<edge_width> = #14          (=0.5000)
   #<probe_mode> = #15          (=0)
+  #<x_probe_offset> = #17		(edit by Andre)
+  #<y_probe_offset> = #18		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -94,7 +96,7 @@ o<probe_y_minus_wco> sub
   (probe mode rule for WCO or probe position measuring only)
   o<140> if [#<probe_mode> EQ 0]
   (Record Y Zero in selected WCO)
-  G10 L2 P#5220 Y[#<y_minus_zero_edge> + #<workspace_y>]
+  G10 L2 P#5220 Y[#<y_minus_zero_edge> + #<workspace_y> + #<y_probe_offset>]	(edit by Andre)
     o<probe_y_minus_wco> return
   o<140> endif
 

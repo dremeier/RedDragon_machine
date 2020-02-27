@@ -27,6 +27,8 @@ o<probe_round_boss> sub
   #<edge_width> = #14          (=0.5000)
   #<probe_mode> = #15          (=0)
   #<max_vel_slider> = #16      (=50)
+  #<x_probe_offset> = #17		(edit by Andre)
+  #<y_probe_offset> = #18		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -276,9 +278,8 @@ o<probe_round_boss> sub
   F[#<max_vel_slider>]
   G38.3 X[#<x_center_probed>] Y[#<y_center_probed>]
 
-  #<x_zero> = [#<x_center_probed> + #<workspace_x>]
-
-  #<y_zero> = [#<y_center_probed> + #<workspace_y>]
+  #<x_zero> = [#<x_center_probed> + #<workspace_x> + #<x_probe_offset>]	(edit by Andre)
+  #<y_zero> = [#<y_center_probed> + #<workspace_y> + #<y_probe_offset>]	(edit by Andre)
 
   (probe mode rules for WCO or probe position measuring only)
   o<140> if [#<probe_mode> EQ 0]

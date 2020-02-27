@@ -28,6 +28,8 @@ o<probe_corner_x_minus_edge_angle> sub
   #<probe_mode> = #15          (=0)
   #<wco_rotation> = #16        (=0)
   #<max_vel_slider> = #17      (=50)
+  #<x_probe_offset> = #18		(edit by Andre)
+  #<y_probe_offset> = #19		(edit by Andre)
 
   (Cancel G92 offsets)
   G92.1
@@ -149,14 +151,14 @@ o<probe_corner_x_minus_edge_angle> sub
   (probe mode rules for WCO,Rotation and probe position measuring only)
   o<150> if [#<probe_mode> EQ 0 AND #<wco_rotation> EQ 0]
     (Record Zero in selected axes and WCO)
-    G10 L2 P#5220 X[#<c1x> + #<workspace_x>] Y[#<c1y> + #<workspace_y>]
+    G10 L2 P#5220 X[#<c1x> + #<workspace_x>+ #<x_probe_offset>] Y[#<c1y> + #<workspace_y> + #<y_probe_offset>]
     o<probe_corner_x_minus_edge_angle> return
   o<150> endif
 
   (probe mode rules for WCO,Rotation and probe position measuring only)
   o<160> if [#<probe_mode> EQ 0 AND #<wco_rotation> EQ 1]
     (Record Zero in selected axes and WCO)
-    G10 L2 P#5220 X[#<c1x> + #<workspace_x>] Y[#<c1y> + #<workspace_y>] R[#<edge_angle>]
+    G10 L2 P#5220 X[#<c1x> + #<workspace_x>+ #<x_probe_offset>] Y[#<c1y> + #<workspace_y> + #<y_probe_offset>] R[#<edge_angle>]
     o<probe_corner_x_minus_edge_angle> return
   o<160> endif
 
