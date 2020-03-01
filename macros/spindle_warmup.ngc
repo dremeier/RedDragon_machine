@@ -1,0 +1,33 @@
+( Spindle Warmup Sequence for HSD-Spindle )
+( AndreM 2020-03-01 )
+
+o<spindle_warmup> sub
+
+; here you can change the StyleSheet of the SubCallButton
+;(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setStyleSheet{'border-color: red'}])
+
+S12000 
+M3
+(debug, Spindle-Warmup-Speed 12000rpm for 2 min.)
+G4 P120 (wait time in sec. )
+
+S18000 
+M3
+(debug, Spindle-Warmup-Speed 18000rpm for 2 min.)
+G4 P120
+
+S24000 
+M3
+(debug, Spindle-Warmup-Speed 24000rpm for 1 min.)
+G4 P60
+M5
+
+;reset the StyleSheed
+;(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setStyleSheet{None}])
+
+; make the button unchecked
+(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setChecked{False}])
+
+o<spindle_warmup> endsub
+
+M2
