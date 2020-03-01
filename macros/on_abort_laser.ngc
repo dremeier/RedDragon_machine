@@ -1,15 +1,20 @@
 o<on_abort_laser> sub
 
 M5
-G49
+G43
 G90
 
 M65 P10 ; laser-on
 M65 P11 ; laser-shutter
 M65 P12	; laser-sealingai
 M65 P13 ; clear-air-blast
+(debug, aborting laser touch-off sequence)
 G53 G0 Z0
-;(debug, aborting laser touch-off sequence)
-(abort, aborting laser touch-off sequence)
+
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button_2"}.setChecked{False}])
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button"}.setChecked{False}])
+
+;(abort, aborting laser touch-off sequence)
+
 o<on_abort_laser> endsub
 m2

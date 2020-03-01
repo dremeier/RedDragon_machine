@@ -1,8 +1,12 @@
-# tool touch-off for Blume Laser
-# Andre 25.02.2020
-
+; tool touch-off for Blume Laser
+; AndreM 25.02.2020
 
 o<tool_touch_off> sub
+
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button_2"}.setCheckable{True}])
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button_2"}.setChecked{True}])
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button"}.setCheckable{True}])
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button"}.setChecked{True}])
 
 (as reminder the digi I/0s)
 (net laser-ok 			=> motion.digital-in-10)
@@ -22,14 +26,13 @@ o<tool_touch_off> sub
 #<tool_diameter_probe_mode> = #8    (activates the tool diameter probe subroutine section)
 #<tool_diameter_offset_mode> = #9   (activates the tool diameter offset position for probe subroutine section)
 #<tool_diameter> = #10    			(current tool's diameter used for offseting probe position in x axis)
-#<retract_distance_2> = #11			(distance the tool retracts after making contact during slow feed mode)
 #<spindle_touch_speed> =#12			(Spindel speed for Laser touch, min. >3000 U/min)
 
 G92.1    (Cancel G92 offset)
 
 #<workspace_z> = #[5203 + [20 * #5220]]
 #1 = #<workspace_z>
-;(debug, Workspace is #1)
+(debug, Workspace is #1)
 
 
 #<tool_touch_x_coords> = #5181  (G30 position)
@@ -39,9 +42,9 @@ G92.1    (Cancel G92 offset)
 #<tool_radius_offset> = [#<tool_diameter> / 2]
 #<offset_probing_position> = [#<tool_touch_x_coords> - #<tool_radius_offset>]
 
-o<100> if [#<tool_diameter_offset_mode> EQ 1]
+o<10> if [#<tool_diameter_offset_mode> EQ 1]
   #<tool_touch_x_coords> = #<offset_probing_position>
-o<100> endif
+o<10> endif
 
 G49    (cancel tlo - tool length compensation)
 G90    (set absolute coordinates)
@@ -51,13 +54,14 @@ G53 G0 X#<tool_touch_x_coords> Y#<tool_touch_y_coords>
 M64 P12 		(laser sealingair on)
 M64 P11			(laser shutter on)
 M64 P10			(laser-on  on)
-M66 P10 L1 Q10	(is laser-ok comes on in 1 sec?)
 
-o50 if [#5399 LT 1] ; checks the status of the M66, if timeover then abort
-        o<on_abort_laser> call
-		M2
-o50 endif
-
+(is laser-ok comes on in 1 sec?)
+M66 P10 L3 Q1	
+O100 if [#5399 NE 1]
+    o<on_abort_laser> call
+	o<tool_touch_off> endsub
+	M2 (end program)
+O100 endif 
 
 M3 S#<spindle_touch_speed>
 M64 P13 	; clear-air-blast to on
@@ -65,35 +69,53 @@ G53 G0 Z#<tool_touch_z_coords>
 
 G91
 F #<fast_probe_fr>
-G38.2 Z-[#<z_max_travel>]    (fast tool probe, toward workpiece)
+G38.3 Z-[#<z_max_travel>]    (fast tool probe, toward workpiece)
 #<z_fast_probe> = #5063    (save probe result of fast probe to parameters, 5063= Coordinates of a G38 probe result)
 
+o102 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_touch_off> endsub
+	M2 (end program)
+o102 endif 
+G4 P0.2  (for real Laser set it to 0.001)
+
+G91
 F #<mid_probe_fr>
-G38.4 Z[#<retract_distance>]    (mid tool probe, away from workpiece)
+G38.3 Z[#<retract_distance> * 2]    (mid tool probe, away from workpiece)
 #<z_fast_probe> = #5063    (save probe result of fast probe to parameters, 5063= Coordinates of a G38 probe result)
 M65 P13 ; clear-air-blast to off
 
+o104 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_touch_off> endsub
+	M2 (end program)
+o104 endif 
+
+G4 P0.2 (for real Laser set it to 0.001)
 (Slow Probe Rule, if Slow Probe FR is set to 0, Slow Probe is Bypassed)
 o<110> if [#<slow_probe_fr> GT 0]
-  (Initiate Slow Z- Probe)
-  G91
-  F[#<slow_probe_fr>]    (set probe slow feedrate)
-  G38.2 Z-[#<retract_distance> * 2]    (slow tool probe)
-  #<z_slow_probe> = #5063
-  (debug, Probed Pos: #5063 Z Pos: #<_z>)
-  G90
-  G0 Z[#<z_slow_probe> + #<retract_distance>]
+	(Initiate Slow Z- Probe)
+  	G91
+  	F[#<slow_probe_fr>]    (set probe slow feedrate)
+  	G38.3 Z-[#<retract_distance> / 3]    (slow tool probe)
+  	#<z_slow_probe> = #5063
+  	(debug, Probed Pos: #5063 Z Pos: #<_z>)
+  	G90
+  	G0 Z[#<z_slow_probe> + #<retract_distance>]
 o<110> endif
 
 o<120> if [#5070 EQ 1]    (verify probe event was succesful)
-  #<z_slow_probe> = #5063    (save slow probe result to parameters)
+  	#<z_slow_probe> = #5063    (save slow probe result to parameters)
 o<120> else
-  (MSG,Tool Length Offset Probe Failed)
+  	(MSG,Tool Length Offset Probe Failed)
+    o<on_abort_laser> call
+	o<tool_touch_off> endsub
+	M2 (end program)
 o<120> endif
 
 (Tool Diameter Probe Mode Section, User must define this section as needed)
 o<130> if [#<tool_diameter_probe_mode> EQ 1]
-  (MSG, Tool Diameter Probing is Not Defined in Subroutine)
+  	(MSG, Tool Diameter Probing is Not Defined in Subroutine)
 o<130> endif
 
 M5
@@ -112,6 +134,10 @@ G53 G0 Z0 (Send Spindle to home zero position)
 (debug, tool-length is #<new_tool_length_offset>)
 G10 L1 P #5400 Z [#<new_tool_length_offset>]  (5400 = tool number)
 T #5400 G43  H #5400    (enable tool length offset)
+
+; make the button unchecked
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button_2"}.setChecked{False}])
+(DEBUG, EVAL[vcp.getWidget{"tool_touch_off_button"}.setChecked{False}])
 
 o<tool_touch_off> endsub
 M2 (end program)

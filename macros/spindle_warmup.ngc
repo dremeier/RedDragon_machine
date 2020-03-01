@@ -5,6 +5,8 @@ o<spindle_warmup> sub
 
 ; here you can change the StyleSheet of the SubCallButton
 ;(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setStyleSheet{'border-color: red'}])
+(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setCheckable{True}])
+(DEBUG, EVAL[vcp.getWidget{"Spindle_warmup"}.setChecked{True}])
 
 S12000 
 M3
