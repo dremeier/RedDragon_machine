@@ -5,8 +5,13 @@ o<on_abort> sub
 (msg, aborting)
 
 M5
-M65 P#<_ini[pins]SEALINGAIR> ;sealing air off
-M65 P#<_ini[pins]CLAMP> 
+M65 P#<_ini[pins]SEALINGAIR> ;HSD sealing air off
+M65 P#<_ini[pins]CLAMP> 		; HSD clamp close
+
+M65 P10 ; laser-off
+M65 P11 ; laser-shutter
+M65 P12	; laser-sealingair
+M65 P13 ; clear-air-blast
 
 o<reset_state> call
 

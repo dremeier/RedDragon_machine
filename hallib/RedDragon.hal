@@ -4,7 +4,7 @@
 # overwritten when you run PNCconf again
 
 loadrt 	[KINS]KINEMATICS
-loadrt 	[EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS num_dio=20 num_aio=64 
+loadrt 	[EMCMOT]EMCMOT servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS num_dio=20 num_aio=10 
 #num_spindles=1
 loadrt 	hostmot2
 loadrt 	hm2_pci config=" num_encoders=4 num_pwmgens=1 num_stepgens=4 sserial_port_0=00000000" 
@@ -278,6 +278,7 @@ net estop-master   	<= hm2_5i24.0.7i90.0.0.p3-in-00	=> e-stop.in-2			# E-Stop Ke
 net estop-TsHW     	<= hm2_5i24.0.TsHW.0.3.key-10	=> e-stop.in-3			# E-Stop btn im Handrad, 0= fault
 net estop-extern	<= e-stop.out 					=> iocontrol.0.emc-enable-in	# estop.out = 1 machine is enabled
 net estop-extern	=> hm2_5i24.0.led.CR02
+# net estop-extern	=> halui.machine.off # muss invertiert werden
 
 #net estop-extern 	=> latch-estop.ok-in
 #net estop-request	<= latch-estop.reset 			<= iocontrol.0.user-request-enable

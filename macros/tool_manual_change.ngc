@@ -39,7 +39,7 @@ o20 endif
 
 o<go_to_man_tool_chg> call
 
-; Sealing air to on, so it is easyer to change toll and remove chips and dust from the cone (Sperrluft an)
+; Sealing air to on, so it is easyer to change tool and remove chips and dust from the cone (Sperrluft an)
 M64 P #<_ini[pins]SEALINGAIR> 
 
 o30 if [#110 LT 1]                             ; tool Nr. in Spindle

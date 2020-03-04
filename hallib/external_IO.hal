@@ -2,8 +2,11 @@
 # loaded in postgui_call_list.hal
 # Andre 27.01.2020
 
-loadrt or2 names=or2.sealingair
-addf or2.sealingair servo-thread
+loadrt 	or2 				names=or2.sealingair
+addf 	or2.sealingair 		servo-thread
+	
+loadrt 	scale 				names=scale.spindle-temp
+addf 	scale.spindle-temp 	servo-thread
 
 ################### qtpyvcp hal-pins ####################################
 net portallicht 	<= qtpyvcp.portallicht-btn.checked 			=> hm2_5i24.0.7i90.0.0.p1-out-16
@@ -17,7 +20,44 @@ net absaugung		<= qtpyvcp.staubsauger-btn.checked			=> hm2_5i24.0.7i90.0.0.p1-ou
 net vacuum_pump		<= qtpyvcp.vacuum-btn.checked				=> hm2_5i24.0.7i90.0.0.p1-out-14
 net vacuum_press	<= qtpyvcp.vacuumtisch-press-btn.checked	=> hm2_5i24.0.7i90.0.0.p1-out-12
 net probe-in		=> qtpyvcp.probe-led.on
+#net test			<= qtpyvcp.machine-off.checked				=> halui.machine.off
+
+############### qtypvcp float / dro / analog in  ########################################
 net spindle-speed-cmd	=> qtpyvcp.spindle-speed-dro.in-f		# <= von spindle.o.speed-out
+net spindle-load		=> qtpyvcp.spindle-load-ind.value		# Load from Bonglifioli FU via Modbus
+
+setp scale.spindle-temp.gain	10
+setp scale.spindle-temp.offset	-30
+net spindle_temp_in	scale.spindle-temp.in		<= hm2_5i24.0.7i87.0.1.analogin0
+net spindle_temp_out	scale.spindle-temp.out		=> qtpyvcp.spindle-temp-ind.value
+
+net air-pressure		=> qtpyvcp.pressure-ind.value	<= hm2_5i24.0.7i87.0.1.analogin1
+net air-vacuum			=> qtpyvcp.vacuum-ind.value		<= hm2_5i24.0.7i87.0.1.analogin2
+
+########## feed / spindle override #####################
+loadrt conv_float_s32 	names=conv_s32.feed,conv_s32.spindle 		
+loadrt mult2 			names=multi.feed,multi.spindle 		# Multiplier
+addf conv_s32.feed 		servo-thread
+addf conv_s32.spindle 	servo-thread
+addf multi.feed 		servo-thread
+addf multi.spindle 		servo-thread
+
+setp halui.feed-override.scale 0.0062
+setp halui.feed-override.direct-value true
+setp halui.spindle.0.override.scale 0.00405
+setp halui.spindle.0.override.direct-value true
+setp multi.feed.in1 	100 								# Multiply the analog value to get rid of the dot
+setp multi.spindle.in1 	100
+
+net feed-analog 		multi.feed.in0 						<= hm2_5i24.0.7i87.0.1.analogin4
+net feed-multiply 		multi.feed.out						=> conv_s32.feed.in
+net feed-override		conv_s32.feed.out 					=> halui.feed-override.counts
+net feed-enable			qtpyvcp.feed-override-enable.checked => halui.feed-override.count-enable
+
+net spindle-analog 		multi.spindle.in0 					<= hm2_5i24.0.7i87.0.1.analogin5
+net spindle-multiply 	multi.spindle.out					=> conv_s32.spindle.in
+net spindle-override	conv_s32.spindle.out 				=> halui.spindle.0.override.counts
+net feed-enable			=> halui.spindle.0.override.count-enable
 
 ############### qtypvcp status halLEDs  ################################################
 net home-x	=> qtpyvcp.x-home-sw.on
@@ -48,4 +88,4 @@ net clear-air-blast		<= motion.digital-out-13		=> hm2_5i24.0.7i90.0.0.p1-out-11
 
 #****************************************************************************************#
 
-net pause_1 halui.program.pause  	<= qtpyvcp.pause01-btn.out
+net pause_1 halui.program.pause  	<= qtpyvcp.pause0-btn.out
