@@ -1,15 +1,7 @@
 ###################################################################
 # TsHW Talla simple Hand Wheel  LinuxCNC Version 2.9
+# edit by AndreM 06.03.2020 - add second Handwheel
 ###################################################################
-# ilowpass und and2   
-#
-# Wenn diese schon in einer anderen HAL geladen bzw. verwendet werden,
-# dann muss dies in der Struktur beachtet werden.
-# Denn doppeltes laden von Komponenten ist nicht möglich.
-# Es müssen die loadrt Befehle auskommentiert werden und
-# die loadrt Befehle in den anderen HAL Dateien mit diesen Namen 
-# ergänzt werden.
-# addf kann hier bleiben :-)
 # 
 # Damit der Zero der Achsen geht müssen in der INI die MDI Commands 
 # angelegt werden 
@@ -34,7 +26,6 @@
 
 loadrt ilowpass names=shw.enc-smooth		# to create smoother motion while jogging with an MPG.
 addf shw.enc-smooth servo-thread
-
 setp shw.enc-smooth.scale 1
 setp shw.enc-smooth.gain  0.025
 
@@ -43,54 +34,94 @@ setp axis.y.jog-vel-mode 1
 setp axis.z.jog-vel-mode 1
 
 loadrt and2 names=shw.ena-x,shw.ena-y,shw.ena-z,shw.zero-x,shw.zero-y,shw.zero-z
-
 addf shw.ena-x servo-thread
 addf shw.ena-y servo-thread
 addf shw.ena-z servo-thread
-
 addf shw.zero-x servo-thread
 addf shw.zero-y servo-thread
 addf shw.zero-z servo-thread
 
 loadrt mux8 names=shw.step-choice
 addf shw.step-choice servo-thread
-
-net key-0001  => shw.step-choice.sel0
-net key-001   => shw.step-choice.sel1
-net key-01    => shw.step-choice.sel2
-
 setp shw.step-choice.in1 0.001
 setp shw.step-choice.in2 0.01
 setp shw.step-choice.in4 0.1
+
+#*************************************************************************************#
+# because we have two Handwheels, one in the Royal-Keboard and one TallaSimpleHandWheel,
+# we have to multiplex the axis and step select switches. Eache signal from the select-switches
+# has to split, one out goes to the LED and one to the jog-enable.
+# for the step signal it will be easy switched withe the mux_generic
+#*************************************************************************************#
+loadrt mux_generic config=bb2,bb2,bb2,bb2,bb2,bb2,bb2,bb2,bb2,ss2
+addf mux-gen.00 	servo-thread			# x-jog
+addf mux-gen.01 	servo-thread			# x-led
+addf mux-gen.02 	servo-thread			# y-jog
+addf mux-gen.03 	servo-thread			# y-led
+addf mux-gen.04 	servo-thread			# z-jog
+addf mux-gen.05 	servo-thread			# z-led
+addf mux-gen.06 	servo-thread			# Schrittweite 0001
+addf mux-gen.07 	servo-thread			# Schrittweite 001
+addf mux-gen.08 	servo-thread			# Schrittweite 01
+addf mux-gen.09 	servo-thread			# Encoder float
+
+# If sel bit is 1 then the TsHW is selected, if 0 the the Keyboard Handwheel is selected
+net tshw_or_keyboard 	<= mux-gen.00.sel-bit-00 		<= qtpyvcp.tshw-toggle.checked
+net tshw_or_keyboard	=> mux-gen.01.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.02.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.03.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.04.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.05.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.06.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.07.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.08.sel-bit-00
+net tshw_or_keyboard	=> mux-gen.09.sel-bit-00
+
+# --- Auswahl Schrittweite ---
+net key-0001 		mux-gen.06.in-bit-01 			<= hm2_5i24.0.TsHW.0.3.key-02
+net kb-0001			mux-gen.06.in-bit-00 			<= hm2_5i24.0.7i90.0.0.p2-in-21
+net sel-0001 		<= mux-gen.06.out-bit 			=> shw.step-choice.sel0
+net sel-0001 										=> hm2_5i24.0.TsHW.0.3.led-02
+
+net key-001 		mux-gen.07.in-bit-01 			<= hm2_5i24.0.TsHW.0.3.key-05
+net kb-001			mux-gen.07.in-bit-00 			<= hm2_5i24.0.7i90.0.0.p2-in-22
+net sel-001 		<= mux-gen.07.out-bit 			=> shw.step-choice.sel1
+net sel-001 										=> hm2_5i24.0.TsHW.0.3.led-05
+
+net key-01 			mux-gen.08.in-bit-01 			<= hm2_5i24.0.TsHW.0.3.key-08
+net kb-01			mux-gen.08.in-bit-00 			<= hm2_5i24.0.7i90.0.0.p2-in-23
+net sel-01 			<= mux-gen.08.out-bit 			=> shw.step-choice.sel2
+net sel-01 											=> hm2_5i24.0.TsHW.0.3.led-08
 
 net step-choice <= shw.step-choice.out
 net step-choice => axis.x.jog-scale
 net step-choice => axis.y.jog-scale
 net step-choice => axis.z.jog-scale
 
-# --- Auswahl Schrittweite ---
-net key-0001 <= hm2_5i24.0.TsHW.0.3.key-02
-net key-0001 => hm2_5i24.0.TsHW.0.3.led-02
-net key-001 <= hm2_5i24.0.TsHW.0.3.key-05
-net key-001 => hm2_5i24.0.TsHW.0.3.led-05
-net key-01 <= hm2_5i24.0.TsHW.0.3.key-08
-net key-01 => hm2_5i24.0.TsHW.0.3.led-08
-
 # --- Auswahl der Achsen ---
-net key-x <= hm2_5i24.0.TsHW.0.3.key-01
-net key-x => hm2_5i24.0.TsHW.0.3.led-01
-net key-x => shw.ena-x.in0
-net ena-x shw.ena-x.out => axis.x.jog-enable
+net x-tshw-key 			<= shw.ena-x.in0 				<= hm2_5i24.0.TsHW.0.3.key-01
+net x-enable-jog		<= mux-gen.00.in-bit-01 		<= shw.ena-x.out
+net x-keyboard			<= mux-gen.00.in-bit-00			<= hm2_5i24.0.7i90.0.0.p2-in-18
+net x-tshw-key			=> mux-gen.01.in-bit-01
+net x-keyboard			=> mux-gen.01.in-bit-00
+net x-jog-out			mux-gen.00.out-bit	 			=> axis.x.jog-enable
+net x-led				mux-gen.01.out-bit				=> hm2_5i24.0.TsHW.0.3.led-01
 
-net key-y <= hm2_5i24.0.TsHW.0.3.key-06
-net key-y => hm2_5i24.0.TsHW.0.3.led-06
-net key-y => shw.ena-y.in0
-net ena-y shw.ena-y.out => axis.y.jog-enable
+net y-tshw-key 			<= shw.ena-y.in0 				<= hm2_5i24.0.TsHW.0.3.key-06
+net y-enable-jog		<= mux-gen.02.in-bit-01 		<= shw.ena-y.out
+net y-keyboard			<= mux-gen.02.in-bit-00			<= hm2_5i24.0.7i90.0.0.p2-in-19
+net y-tshw-key			=> mux-gen.03.in-bit-01
+net y-keyboard			=> mux-gen.03.in-bit-00
+net y-jog-out			mux-gen.02.out-bit	 			=> axis.y.jog-enable
+net y-led				mux-gen.03.out-bit				=> hm2_5i24.0.TsHW.0.3.led-06
 
-net key-z <= hm2_5i24.0.TsHW.0.3.key-07
-net key-z => hm2_5i24.0.TsHW.0.3.led-07
-net key-z => shw.ena-z.in0
-net ena-z shw.ena-z.out => axis.z.jog-enable
+net z-tshw-key 			<= shw.ena-z.in0 				<= hm2_5i24.0.TsHW.0.3.key-07
+net z-enable-jog		<= mux-gen.04.in-bit-01 		<= shw.ena-z.out
+net z-keyboard			<= mux-gen.04.in-bit-00			<= hm2_5i24.0.7i90.0.0.p2-in-20
+net z-tshw-key			=> mux-gen.05.in-bit-01
+net z-keyboard			=> mux-gen.05.in-bit-00
+net z-jog-out			mux-gen.04.out-bit	 			=> axis.z.jog-enable
+net z-led				mux-gen.05.out-bit				=> hm2_5i24.0.TsHW.0.3.led-07
 
 # --- Freigabe Taste ---
 net key-ena <= hm2_5i24.0.TsHW.0.3.key-00
@@ -102,11 +133,14 @@ net key-ena => halui.mode.manual
 net key-ena => hm2_5i24.0.TsHW.0.3.led-00
 
 # --- Encoder ---
-net enc-00 shw.enc-smooth.in <= hm2_5i24.0.TsHW.0.3.encoder-0.count
-net enc-01 <= shw.enc-smooth.out
-net enc-01 => axis.x.jog-counts
-net enc-01 => axis.y.jog-counts
-net enc-01 => axis.z.jog-counts
+setp    hm2_5i24.0.encoder.03.counter-mode true
+net enc-keyboard	mux-gen.09.in-s32-00			<= hm2_5i24.0.encoder.03.count
+net enc-tshw		mux-gen.09.in-s32-01			<= hm2_5i24.0.TsHW.0.3.encoder-0.count
+net enc-00 			shw.enc-smooth.in 				<= mux-gen.09.out-s32
+net enc-01 			<= shw.enc-smooth.out
+net enc-01 			=> axis.x.jog-counts
+net enc-01 			=> axis.y.jog-counts
+net enc-01 			=> axis.z.jog-counts
 
 # --- Start Button ---
 net key-03 <= hm2_5i24.0.TsHW.0.3.key-03 
@@ -123,7 +157,7 @@ net key-04 => shw.zero-z.in1
 net key-04 => halui.mode.mdi
 
 net key-z => shw.zero-z.in0
-net key-x => shw.zero-x.in0
+net x-tshw-key => shw.zero-x.in0
 net key-y => shw.zero-y.in0
 
 net zero-x shw.zero-x.out => halui.mdi-command-00
@@ -140,5 +174,9 @@ net red-on => hm2_5i24.0.TsHW.0.3.led-09 # <-aus Ampel.hal
 # estop wird in der 'RedDragon.hal' verarbeitet
 
 ###################################################################
+
+
+
+
 
 
