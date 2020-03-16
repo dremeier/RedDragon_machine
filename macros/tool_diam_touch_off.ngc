@@ -1,0 +1,105 @@
+(Laser diameter measure)
+(called from tool_touch_off.ngc)
+(AndreM 14.03.2020)
+
+o<tool_diam_touch_off> sub
+
+#<fast_probe_fr> = #1    			(set from probe screen fast probe feed rate)
+#<mid_probe_fr> = #2    			(set from probe screen mid probe feedrate)
+#<slow_probe_fr> = #3    			(set from probe screen slow probe feedrate)
+#<xy_max_travel> = #4    			(max xy distance the tool travels before erroring out if not contact is made)
+
+(Current Y Position including offsets in current program units)
+#<y> = #5421
+(current tool diameter)
+#<tool_radius>= [[#5410/2]+0.2]
+
+G91
+G1 F [#<fast_probe_fr>] Z-[#<tool_radius>]
+
+
+(Initiate Fast y+ Probe)
+  F [#<fast_probe_fr>]
+  G38.2 y[#<xy_max_travel>]
+  #<y_plus_probed> = #5062
+
+o100 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o100 endif 
+
+
+G4 P0.5 (for real Laser set it to 0.001)
+(Initiate mid y- Probe)
+  F [#<mid_probe_fr>]
+  G38.2 y-[#<xy_max_travel>/2]
+  #<y_plus_probed> = #5062
+
+o110 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o110 endif 
+
+
+G4 P0.5 (for real Laser set it to 0.001)
+(Initiate slow y- Probe)
+  F [#<slow_probe_fr>]
+  G38.2 y[#<xy_max_travel>/4]
+  #<y_plus_probed> = #5062
+
+o120 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o120 endif 
+
+#<y_plus_diameter> =  [#<y_plus_probed> - #<y> ]
+(debug, halber Durchmesser in y-plus #<y_plus_diameter>)
+
+G4 P0.5 (for real Laser set it to 0.001)
+(Initiate Fast y- Probe)
+  F [#<fast_probe_fr>]
+  G38.2 y-[#<xy_max_travel>]
+ 
+o130 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o130 endif 
+
+
+G4 P0.5 (for real Laser set it to 0.001)
+(Initiate mid y+ Probe)
+  F [#<mid_probe_fr>]
+  G38.2 y[#<xy_max_travel>/2]
+  
+o140 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o140 endif 
+
+
+G4 P0.5 (for real Laser set it to 0.001)
+(Initiate slow y- Probe)
+  F [#<slow_probe_fr>]
+  G38.2 y-[#<xy_max_travel>/4]
+  #<y_minus_probed> = #5062
+
+o150 if [#5070 EQ 0] 
+    o<on_abort_laser> call
+	o<tool_diam_touch_off> endsub
+	M2 (end program)
+o150 endif 
+
+#<y_minus_diameter> =  [#<y> - #<y_minus_probed>]
+(debug, halber Durchmesser in y-minus #<y_minus_diameter>)
+
+#<new_radius> = [[#<y_plus_diameter> + #<y_minus_diameter>] /2]
+(debug, gesamter Radius #<new_radius>)
+G10 L1 P #5400 R[#<new_radius>]
+
+o<tool_diam_touch_off> endsub
+m2

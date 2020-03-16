@@ -1,13 +1,10 @@
-2020-03-07 00:35:24,030 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
-2020-03-07 00:35:24,030 - qtpyvcp - INFO - QtPyVCP Version: v0.3.5+6.g7b88783e
-2020-03-07 00:35:24,290 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
-2020-03-07 00:35:24,290 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
-2020-03-07 00:35:24,290 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
-2020-03-07 00:35:24,290 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
-2020-03-07 00:35:24,290 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
-2020-03-07 00:35:24,298 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
-2020-03-07 00:35:24,356 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
-2020-03-07 00:35:26,314 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal
-2020-03-07 00:35:32,041 - qtpyvcp.plugins.notifications - INFO - aborting
-2020-03-07 00:35:33,663 - qtpyvcp.actions.machine_actions - INFO - Homing all axes
-2020-03-07 00:41:01,827 - qtpyvcp.plugins.notifications - INFO - aborting
+2020-03-16 06:54:07,138 - qtpyvcp - INFO - Logging to /home/andre/linuxcnc/configs/RedDragon_machine/RedDragon.log
+2020-03-16 06:54:07,138 - qtpyvcp - INFO - QtPyVCP Version: v0.3.6+17.g7c121f53
+2020-03-16 06:54:07,393 - qtpyvcp.utilities.info - INFO - The machine has 3 axes and 3 joints
+2020-03-16 06:54:07,394 - qtpyvcp.utilities.info - INFO - The Axis/Joint mapping is:
+2020-03-16 06:54:07,394 - qtpyvcp.utilities.info - INFO - Axis X --> Joint 0
+2020-03-16 06:54:07,394 - qtpyvcp.utilities.info - INFO - Axis Y --> Joint 1
+2020-03-16 06:54:07,394 - qtpyvcp.utilities.info - INFO - Axis Z --> Joint 2
+2020-03-16 06:54:07,401 - qtpyvcp.utilities.info - WARNING - No [TRAJ] SPINDLES entry in INI, using 1
+2020-03-16 06:54:07,466 - qtpyvcp - INFO - Loading global stylesheet: /home/andre/probe_basic/probe_basic/probe_basic.qss
+2020-03-16 06:54:09,676 - qtpyvcp.vcp_launcher - INFO - Loading POSTGUI_HALFILE: /home/andre/linuxcnc/configs/RedDragon_machine/hallib/postgui_call_list.hal

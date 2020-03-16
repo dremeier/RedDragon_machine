@@ -77,7 +77,7 @@ net tshw_or_keyboard	=> mux-gen.07.sel-bit-00
 net tshw_or_keyboard	=> mux-gen.08.sel-bit-00
 net tshw_or_keyboard	=> mux-gen.09.sel-bit-00
 
-# --- Auswahl Schrittweite ---
+# --- choose the steps ---
 net key-0001 		mux-gen.06.in-bit-01 			<= hm2_5i24.0.TsHW.0.3.key-02
 net kb-0001			mux-gen.06.in-bit-00 			<= hm2_5i24.0.7i90.0.0.p2-in-21
 net sel-0001 		<= mux-gen.06.out-bit 			=> shw.step-choice.sel0
@@ -98,7 +98,7 @@ net step-choice => axis.x.jog-scale
 net step-choice => axis.y.jog-scale
 net step-choice => axis.z.jog-scale
 
-# --- Auswahl der Achsen ---
+# --- choose the axis ---
 net x-tshw-key 			<= shw.ena-x.in0 				<= hm2_5i24.0.TsHW.0.3.key-01
 net x-enable-jog		<= mux-gen.00.in-bit-01 		<= shw.ena-x.out
 net x-keyboard			<= mux-gen.00.in-bit-00			<= hm2_5i24.0.7i90.0.0.p2-in-18
@@ -123,16 +123,16 @@ net z-keyboard			=> mux-gen.05.in-bit-00
 net z-jog-out			mux-gen.04.out-bit	 			=> axis.z.jog-enable
 net z-led				mux-gen.05.out-bit				=> hm2_5i24.0.TsHW.0.3.led-07
 
-# --- Freigabe Taste ---
-net key-ena <= hm2_5i24.0.TsHW.0.3.key-00
-net key-ena => shw.ena-x.in1
-net key-ena => shw.ena-y.in1
-net key-ena => shw.ena-z.in1
-net key-ena => halui.mode.manual
-#net key-ena => axisui.notifications-clear 	# Fehler resetten
-net key-ena => hm2_5i24.0.TsHW.0.3.led-00
+# --- enable button on TsHW ---
+net key-ena 	<= hm2_5i24.0.TsHW.0.3.key-00
+net key-ena 	=> shw.ena-x.in1
+net key-ena 	=> shw.ena-y.in1
+net key-ena 	=> shw.ena-z.in1
+net key-ena 	=> halui.mode.manual
+#net key-ena 	=> axisui.notifications-clear 	# Fehler resetten
+net key-ena 	=> hm2_5i24.0.TsHW.0.3.led-00
 
-# --- Encoder ---
+# --- encoder on Keyboard and TsHW ---
 setp    hm2_5i24.0.encoder.03.counter-mode true
 net enc-keyboard	mux-gen.09.in-s32-00			<= hm2_5i24.0.encoder.03.count
 net enc-tshw		mux-gen.09.in-s32-01			<= hm2_5i24.0.TsHW.0.3.encoder-0.count
@@ -143,22 +143,22 @@ net enc-01 			=> axis.y.jog-counts
 net enc-01 			=> axis.z.jog-counts
 
 # --- Start Button ---
-net key-03 <= hm2_5i24.0.TsHW.0.3.key-03 
-net key-03 => halui.program.run
-net key-03 => halui.mode.auto
-net green-on => hm2_5i24.0.TsHW.0.3.led-03  # <-aus Ampel.hal
+net key-03 		<= hm2_5i24.0.TsHW.0.3.key-03 
+net key-03 		=> halui.program.run
+net key-03 		=> halui.mode.auto
+net green-on 	=> hm2_5i24.0.TsHW.0.3.led-03  # <-aus Ampel.hal
 
-# --- Achsen Nullen ---
-net key-04 <= hm2_5i24.0.TsHW.0.3.key-04 
-net yellow-on => hm2_5i24.0.TsHW.0.3.led-04
-net key-04 => shw.zero-x.in1
-net key-04 => shw.zero-y.in1
-net key-04 => shw.zero-z.in1
-net key-04 => halui.mode.mdi
+# --- zero the axis ---
+net key-04 		<= hm2_5i24.0.TsHW.0.3.key-04 
+net yellow-on 	=> hm2_5i24.0.TsHW.0.3.led-04
+net key-04 		=> shw.zero-x.in1
+net key-04 		=> shw.zero-y.in1
+net key-04 		=> shw.zero-z.in1
+net key-04 		=> halui.mode.mdi
 
-net key-z => shw.zero-z.in0
-net x-tshw-key => shw.zero-x.in0
-net key-y => shw.zero-y.in0
+net x-tshw-key 	=> shw.zero-x.in0
+net y-tshw-key 	=> shw.zero-y.in0
+net z-tshw-key 	=> shw.zero-z.in0
 
 net zero-x shw.zero-x.out => halui.mdi-command-00
 net zero-y shw.zero-y.out => halui.mdi-command-01
@@ -169,7 +169,7 @@ net key-09 <= hm2_5i24.0.TsHW.0.3.key-09
 net key-09 => halui.program.stop
 net red-on => hm2_5i24.0.TsHW.0.3.led-09 # <-aus Ampel.hal
 
-# --- Not-Stopp ---
+# --- E-Stopp ---
 #net key-10 <= hm2_5i24.0.TsHW.0.3.key-10
 # estop wird in der 'RedDragon.hal' verarbeitet
 
